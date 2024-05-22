@@ -2220,7 +2220,7 @@ I .work__text {
     padding-bottom: 10px;
     color: #fff;
 }
-.work__link:hover {);
+.work__link:hover {
   letter-spacing: 3px;
   /*background: var(--color-1-1);*/
   /*color: var(--color-1-2*/
@@ -2632,31 +2632,31 @@ body .spacing41 {
 }
 .about_banner_img
 {
-    background-image:url("img/about-us_images.jpg");
+    background-image:url("/assets/images/about-us_images.jpg");
 }
 
 .buisness_banner_img
 {
-    background-image:url("img/our-buisness-banner.jpg");
+    background-image:url("/assets/images/our-buisness-banner.jpg");
 }
 .contact_banner
 {
-    background-image:url("img/contact_banner.jpg");
+    background-image:url("/assets/images/contact_banner.jpg");
 }
 
 .career_banner
 {
-    background-image:url("img/career_banner.jpg");
+    background-image:url("/assets/images/career_banner.jpg");
 }
 
 .product_banner
 {
-    background-image:url("img/product_banner.jpg");
+    background-image:url("/assets/images/product_banner.jpg");
 }
 
 .projects_and_accreditations_banner
 {
-    background-image:url("img/projects_and_accreditation_banner.jpg");
+    background-image:url("/assets/images/projects_and_accreditation_banner.jpg");
 }
 
 .expert_specialist_container {
@@ -3449,7 +3449,7 @@ section#certificates_n_awards {
 }
 
 section#year_pole{
-    background-image: url("img/about_us_map.png");
+    background-image: url("/assets/images/about_us_map.png");
     padding: 20px 40px;
 }
 

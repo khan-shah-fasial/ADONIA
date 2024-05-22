@@ -15,61 +15,52 @@ class IndexController extends Controller
         return view('frontend.pages.home.index');
     }
 
-//--------------=============================== other ================================------------------------------
-
-    public function not_found(){
-
-        return view('frontend.pages.404.index');
-    }
-    public function thank_you(){
-
-        return view('frontend.pages.thankyou.index');
-    }
-
-    public function cookie_policy(){
-
-        return view('frontend.pages.cookiePolicy.index');
-    }
-
-//--------------=============================== other ================================------------------------------
-
 //--------------=============================== Pages ================================------------------------------
 
-    public function contact_us(){
-        return view('frontend.pages.contact.index');
+    public function contact_Us(){
+        return view('frontend.pages.contactus.contact-us');
     }
-    public function information(){
-        return view('frontend.pages.information.index');
-    }
-
-    public function opennew_account(){
-        return view('frontend.pages.opennewaccount.index');
+    public function projects(){
+        return view('frontend.pages.projects.projects-and-accreditations');
     }
 
-    public function faq(){
-        $faq = Faq::where('status', 1)->get();
-        return view('frontend.pages.faq.index', compact('faq'));
+    public function products(){
+        return view('frontend.pages.products.products');
     }
 
-    public function instantpay(){
-        return view('frontend.pages.instantpay.index');
+    public function our_Business(){
+        return view('frontend.pages.ourbusiness.our-business');
     }
 
-    public function privacy_policy(){
-        return view('frontend.pages.privacypolice.index');
+    public function career(){
+        return view('frontend.pages.career.careers');
     }
 
-    public function terms_page(){
-        return view('frontend.pages.terms.index');
-    }
-
-    public function refund_policy(){
-        return view('frontend.pages.refund_policy.index');
+    public function about_Us(){
+        return view('frontend.pages.about.about-us');
     }
 
 //--------------=============================== Pages ================================------------------------------
 
 
+
+//--------------=============================== other ================================------------------------------
+
+public function not_found(){
+
+    return view('frontend.pages.404.index');
+}
+public function thank_you(){
+
+    return view('frontend.pages.thankyou.index');
+}
+
+public function cookie_policy(){
+
+    return view('frontend.pages.cookiePolicy.index');
+}
+
+//--------------=============================== other ================================------------------------------
 
 
 
