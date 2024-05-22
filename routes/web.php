@@ -20,15 +20,12 @@ use Illuminate\Support\Facades\Mail;
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
 
-Route::get('/contact-us', [IndexController::class, 'contact_us'])->name('contact');
-Route::get('/information', [IndexController::class, 'information'])->name('information');
-Route::any('/instant-pay', [IndexController::class, 'instantpay'])->name('instantpay');
-Route::get('/faq', [IndexController::class, 'faq'])->name('faq');
-Route::get('/opennew-account', [IndexController::class, 'opennew_account'])->name('opennewaccount');
-Route::get('/privacy-policy', [IndexController::class, 'privacy_policy'])->name('privacy-policy');
-
-Route::get('/terms', [IndexController::class, 'terms_page'])->name('terms');
-Route::get('/refund-policy', [IndexController::class, 'refund_policy'])->name('refund-policy');
+Route::get('/about-us', [IndexController::class, 'about_Us'])->name('about-us');
+Route::get('/career', [IndexController::class, 'career'])->name('career');
+Route::get('/our-business', [IndexController::class, 'our_Business'])->name('our-business');
+Route::get('/products', [IndexController::class, 'products'])->name('products');
+Route::get('/projects', [IndexController::class, 'projects'])->name('projects');
+Route::get('/contact-us', [IndexController::class, 'contact_Us'])->name('contact');
 
 Route::get('/404', [IndexController::class, 'not_found'])->name('error_page');
 Route::get('/thank-you', [IndexController::class, 'thank_you'])->name('thank_you');
