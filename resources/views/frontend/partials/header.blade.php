@@ -75,27 +75,27 @@
                  <ul id="menu-glavnoe-menyu" class="menu">
                      <li id="menu-item-35"
                          class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-2 current_page_item">
-                         <a href="index.php">
+                         <a href="{{ url('/') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">HOME PAGE</div>
                          </a>
                      </li>
                      <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-page">
-                         <a href="about-us.php">
+                         <a href="{{ route('about-us') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">ABOUT US</div>
                          </a>
                      </li>
                      <li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-page">
-                         <a href="our-business.php">
+                         <a href="{{ route('our-business') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">OUR BUSINESS</div>
                          </a>
                      </li>
                      <li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page">
-                         <a href="products.php">
+                         <a href="{{ route('products') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">PRODUCTS</div>
                          </a>
                      </li>
                      <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page">
-                         <a href="projects-and-accreditations.php">
+                         <a href="{{ route('projects') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">PROJECTS AND
                                  ACCREDITATIONS</div>
                          </a>
@@ -106,12 +106,12 @@
                          </a>
                      </li>
                      <li id="menu-item-606" class="menu-item menu-item-type-post_type menu-item-object-page">
-                         <a href="careers.php">
+                         <a href="{{ route('career') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">CAREER</div>
                          </a>
                      </li>
                      <li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page">
-                         <a href="contact-us.php">
+                         <a href="{{ route('contact') }}">
                              <div class="js-animated-text js-animated-text-menu translation-block">CONTACT US</div>
                          </a>
                      </li>
