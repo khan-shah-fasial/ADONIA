@@ -698,21 +698,21 @@
                                     <div class="work__text">
                                         <div class="work__info">
                                             <div class="work__left-bl">
-                                                <!--<span class="work__num">01</span>-->
-                                                <h2 class="title">Atal Setu<!-- <span class="stroke">PROJECTS</span> -->
+                                                <span class="work__num">01</span>
+                                                <h2 class="title">Atal Setu<span class="stroke">PROJECTS</span>
                                                 </h2>
-                                                <!--<p class="text_fotns mb-0 pb-0">Dec.06, 2023</p> -->
+                                                <p class="text_fotns mb-0 pb-0">Dec.06, 2023</p>
                                                 <p class="text_fotns"></p>
                                                 <a href="projects-and-accreditations.php" class="work__link">Read More</a>
                                             </div>
                                         </div>
                                         <div class="work__info">
                                             <div class="work__left-bl">
-                                                <!--<span class="work__num">02</span>-->
+                                                <span class="work__num">02</span>
                                                 <h2 class="title">Green Recycling Project At
-                                                    Alang<!-- <span class="stroke">PROJECTS</span> -->
+                                                    Alang<span class="stroke">PROJECTS</span>
                                                 </h2>
-                                                <!--<p class="text_fotns mb-0 pb-0">Dec.06, 2023</p> -->
+                                                <p class="text_fotns mb-0 pb-0">Dec.06, 2023</p>
                                                 <p class="text_fotns"></p>
                                                 <a href="projects-and-accreditations.php" class="work__link">Read More</a>
                                             </div>

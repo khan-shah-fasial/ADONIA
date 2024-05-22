@@ -55,14 +55,62 @@
                         </li>
 
 
-                        {{---
+
 
                         <li class="side-nav-item">
-                            <a href="{{ route('contact.index') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                            <a href="{{ route('backend.home.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                                 <i class="ri-bar-chart-2-line"></i> 
-                                <span> Leads </span>
+                                <span> Home Page </span>
                             </a>
                         </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('backend.about.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="ri-bar-chart-2-line"></i> 
+                                <span> About Page </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('backend.project.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="ri-bar-chart-2-line"></i> 
+                                <span> Project Page </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('backend.career.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="ri-bar-chart-2-line"></i> 
+                                <span> Career Page </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('backend.contact.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="ri-bar-chart-2-line"></i> 
+                                <span> Contact Page </span>
+                            </a>
+                        </li>
+
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('backend.business.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="ri-bar-chart-2-line"></i> 
+                                <span> Business Page </span>
+                            </a>
+                        </li>
+
+                        <li class="side-nav-item">
+                            <a href="{{ route('backend.products.page') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                                <i class="ri-bar-chart-2-line"></i> 
+                                <span> Products Page </span>
+                            </a>
+                        </li>
+
+                        {{--
 
                         <li class="side-nav-item">
                             <a href="{{ route('practicearea.index') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
