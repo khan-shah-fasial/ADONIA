@@ -14,6 +14,6 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-<link href="https://adonia.webtesting.pw/wp-includes/custom-css/font-styles.css" rel="stylesheet">  
+<link href="/assets/frontend/css/font-styles.css" rel="stylesheet">
 <link href="https://db.onlinewebfonts.com/c/fd18e391776fea6256be11db6ed387f8?family=HeliosExtBlack" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
