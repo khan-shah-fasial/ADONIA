@@ -416,9 +416,9 @@
 @section('page.scripts')
 <script>
 $(document).ready(function() {
-    initValidate('#about_project_form');
-    initValidate('#about_counter_form');
-    initValidate('#about_business_form');
+    initValidate('#about_our_values_form');
+    initValidate('#about_mnv_section_form');
+    initValidate('#about_teamwork_form');
     initValidate('#about_marque_form');
     initValidate('#about_intro_form');
     initValidate('#about_banner_form');
@@ -426,17 +426,17 @@ $(document).ready(function() {
     initTrumbowyg('.trumbowyg');
 });
 
-$("#about_project_form").submit(function(e) {
+$("#about_our_values_form").submit(function(e) {
     var form = $(this);
     ajaxSubmit(e, form, responseHandler);
 });
 
-$("#about_counter_form").submit(function(e) {
+$("#about_mnv_section_form").submit(function(e) {
     var form = $(this);
     ajaxSubmit(e, form, responseHandler);
 });
 
-$("#about_business_form").submit(function(e) {
+$("#about_teamwork_form").submit(function(e) {
     var form = $(this);
     ajaxSubmit(e, form, responseHandler);
 });
