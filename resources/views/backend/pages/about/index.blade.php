@@ -599,7 +599,7 @@
                                                     class="font-size11">(Max
                                                     file
                                                     size 80kb - 1125*196)</span></label>
-                                            <input class="form-control" required type="file" id="img"
+                                            <input class="form-control" type="file" id="img"
                                                 name="img" @if(empty($team_img)) required @endif>
 
                                             <div class="col-sm-3 mt-2">

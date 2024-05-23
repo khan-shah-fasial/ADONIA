@@ -13,9 +13,6 @@ footer {
     background: #bdbec2 !important;
 }
 </style>
-@php
-var_dump($aboutDetails);
-@endphp
 <section class="inner_banner_section" style=" background-image:url('{{ asset('storage/' . $aboutDetails->banners) }}')">
     <div class="container">
         <div class="heading_inner">
@@ -126,32 +123,32 @@ var_dump($aboutDetails);
     <section id="year_pole_carousel" class="steps_mobile">
         <div id="pole_carousel" class="owl-carousel owl-theme">
             <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[0]['image']) }}" alt="2013">
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[0]['mobile_image']) }}" alt="2013">
                 <p class="blue_color year_pole_heading">{!! $steps[0]['title'] !!}</p>
                 <p class="year_pole_content">{!! $steps[0]['description'] !!}</p>
             </div>
             <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[1]['image']) }}">
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[1]['mobile_image']) }}">
                 <p class="blue_color year_pole_heading">{!! $steps[1]['title'] !!}</p>
                 <p class="year_pole_content">{!! $steps[1]['description'] !!}</p>
             </div>
             <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[2]['image']) }}" alt="2016">
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[2]['mobile_image']) }}" alt="2016">
                 <p class="blue_color year_pole_heading">{!! $steps[2]['title'] !!}</p>
                 <p class="year_pole_content">{!! $steps[2]['description'] !!}</p>
             </div>
             <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[3]['image']) }}">
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[3]['mobile_image']) }}">
                 <p class="blue_color year_pole_heading">{!! $steps[3]['title'] !!}</p>
                 <p class="year_pole_content">{!! $steps[3]['description'] !!}</p>
             </div>
             <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[4]['image']) }}" alt="2021">
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[4]['mobile_image']) }}" alt="2021">
                 <p class="blue_color year_pole_heading">{!! $steps[4]['title'] !!}</p>
                 <p class="year_pole_content">{!! $steps[4]['description'] !!}</p>
             </div>
             <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[5]['image']) }}">
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[5]['mobile_image']) }}">
                 <p class="blue_color year_pole_heading">{!! $steps[5]['title'] !!}</p>
                 <p class="year_pole_content">{!! $steps[5]['description'] !!}</p>
             </div>
