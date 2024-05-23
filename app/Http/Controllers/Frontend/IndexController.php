@@ -51,8 +51,12 @@ class IndexController extends Controller
 
         $aboutDetails = DB::table('pages')->where('page_name', 'about')->first();
         $introduction = json_decode($aboutDetails->introduction, true);
+        $steps = json_decode($aboutDetails->steps, true);
+        $teams = json_decode($aboutDetails->teams, true);
+        $missionVision = json_decode($aboutDetails->mission_vision, true);
+        $ourvalues = json_decode($aboutDetails->our_values, true);
     
-        return view('frontend.pages.about.about-us', compact('aboutDetails','introduction'));
+        return view('frontend.pages.about.about-us', compact('aboutDetails','introduction', 'steps', 'teams', 'missionVision', 'ourvalues'));
     }
     
 
