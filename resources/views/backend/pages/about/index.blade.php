@@ -134,13 +134,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 1 <span class="red">*</span> </label>
-                                        <input class="form-control" type="text" name="steps-section-title">
+                                        <input class="form-control" type="text" name="title[]">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description 1 <span class="red">*</span> </label>
-                                        <textarea class="trumbowyg form-control" name="steps-section-description" rows="5" required></textarea>
+                                        <textarea class="trumbowyg form-control" name="description[]" rows="5" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -155,13 +155,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 2 <span class="red">*</span> </label>
-                                        <input class="form-control" type="text" name="steps-section-title">
+                                        <input class="form-control" type="text" name="title[]">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description 2 <span class="red">*</span> </label>
-                                        <textarea class="trumbowyg form-control" name="steps-section-description" rows="5" required></textarea>
+                                        <textarea class="trumbowyg form-control" name="description[]" rows="5" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -176,13 +176,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 3 <span class="red">*</span> </label>
-                                        <input class="form-control" type="text" name="steps-section-title">
+                                        <input class="form-control" type="text" name="title[]">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description 3 <span class="red">*</span> </label>
-                                        <textarea class="trumbowyg form-control" name="steps-section-description" rows="5" required></textarea>
+                                        <textarea class="trumbowyg form-control" name="description[]" rows="5" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -197,13 +197,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 4 <span class="red">*</span> </label>
-                                        <input class="form-control" type="text" name="steps-section-title">
+                                        <input class="form-control" type="text" name="title[]">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description 4 <span class="red">*</span> </label>
-                                        <textarea class="trumbowyg form-control" name="steps-section-description" rows="5" required></textarea>
+                                        <textarea class="trumbowyg form-control" name="description[]" rows="5" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -218,13 +218,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 5 <span class="red">*</span> </label>
-                                        <input class="form-control" type="text" name="steps-section-title">
+                                        <input class="form-control" type="text" name="title[]">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description 5 <span class="red">*</span> </label>
-                                        <textarea class="trumbowyg form-control" name="steps-section-description" rows="5" required></textarea>
+                                        <textarea class="trumbowyg form-control" name="description[]" rows="5" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -239,13 +239,13 @@
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 6 <span class="red">*</span> </label>
-                                        <input class="form-control" type="text" name="steps-section-title">
+                                        <input class="form-control" type="text" name="title[]">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description 6 <span class="red">*</span> </label>
-                                        <textarea class="trumbowyg form-control" name="steps-section-description" rows="5" required></textarea>
+                                        <textarea class="trumbowyg form-control" name="description[]" rows="5" required></textarea>
                                     </div>
                                 </div>
                             </div>

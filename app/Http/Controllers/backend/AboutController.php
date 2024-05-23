@@ -95,7 +95,68 @@ class AboutController extends Controller
 
     public function about_steps(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'notification' => $validator->errors()->all()
+            ], 200);
+        }
+
+        $title = $request->title;
+        $description = $request->description;
+
+        // Storing new image
+        $newImage = [];
+        if($request->has('image')){
+            foreach ($request->file('image') as $index => $file) {
+                $ImagePath = $file->store('assets/project/', 'public');
+                $newImage[$index] = $ImagePath;
+            }
+        }
+
+        $Image = [];
+        foreach ($title as $key => $name) {
+            if (isset($newImage[$key])) {
+                $Image[$key] = $newImage[$key];
+            } else {
+                $old = "old_image$key";
+                $Image[$key] = $request->$old ?? null;
+            }
+        }
+
+        $steps = [];
+
+        // Creating the business array
+        for ($i = 0; $i < count($title); $i++) {
+            $steps[$i] = [
+                'title' => $title[$i],
+                'image' => $Image[$i],
+                'description' => $description[$i] 
+            ];
+        }
+
+        $result = DB::table('pages')->where('page_name', $request->page)->update([
+            'steps' => json_encode($steps),
+        ]);
         
+        if($result){
+            $response = [
+                'status' => true,
+                'notification' => 'About Steps Save successfully!',
+            ];
+        } else {
+            $response = [
+                'status' => false,
+                'notification' => 'Somthing Went Wrong!',
+            ];
+        }
+
+        return response()->json($response);
         
     }
 

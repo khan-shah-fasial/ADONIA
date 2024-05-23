@@ -301,10 +301,15 @@
                                             <div class="row">
                                             <div class="col-md-11">
                                                 <div class="row">
-    
+                                                    
+                                                    {{--
+                                                    // <div class="col col-sm-6">
+                                                    //     <input class="form-control" style="margin-bottom: 5px;"
+                                                    //         type="file" id="image" name="icon[]" required>
+                                                    // </div> 
+                                                    --}}
                                                     <div class="col col-sm-6">
-                                                        <input class="form-control" style="margin-bottom: 5px;"
-                                                            type="file" id="image" name="icon[]" required>
+                                                        <textarea class="form-control" name="icon[]" rows="5" required></textarea>
                                                     </div>
     
                                                     <div class="col col-sm-6">
@@ -656,7 +661,8 @@
                     <div class="row">
     
                         <div class="col col-sm-6">
-                        <input class="form-control" style="margin-bottom: 5px;" type="file" id="image" name="icon[]" required>
+                        <!--<input class="form-control" style="margin-bottom: 5px;" type="file" id="image" name="icon[]" required>-->
+                            <textarea class="form-control" style="margin-bottom: 5px;" name="icon[]" rows="5" required></textarea>
                         </div>
     
                         <div class="col col-sm-6">
