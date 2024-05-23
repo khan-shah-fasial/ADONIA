@@ -170,7 +170,9 @@ function remove_replace_key(_this) {
     _this.closest(".replace_key").remove();
 }
 
+var textareaIdCounter = 0;
 $("#add_replace_key").on("click", function() {
+    textareaIdCounter++;
 
     var new_replace_key = `
                 <div class="replace_key form-group">
@@ -218,7 +220,7 @@ $("#add_replace_key").on("click", function() {
                                 <div class="col col-sm-12">
                                     <div class="form-group mb-3">
                                         <label>Description <span class="red">*</span></label>
-                                        <textarea placeholder="Enter Description here" class="trumbowyg form-control" name="intro" rows="5"
+                                        <textarea id="trumbowyg_${textareaIdCounter}" placeholder="Enter Description here" class="trumbowyg form-control" name="intro" rows="5"
                                             required></textarea>
                                     </div>
                                 </div>
@@ -232,6 +234,7 @@ $("#add_replace_key").on("click", function() {
             `;
 
     $("#replace_key_add_more").append(new_replace_key);
+    initTrumbowyg(`#trumbowyg_${textareaIdCounter}`);
 
 });
 </script>
