@@ -13,7 +13,7 @@ footer {
     background: #bdbec2 !important;
 }
 </style>
-@php 
+@php
 var_dump($aboutDetails);
 @endphp
 <section class="inner_banner_section" style=" background-image:url('{{ asset('storage/' . $aboutDetails->banners) }}')">
@@ -29,12 +29,14 @@ var_dump($aboutDetails);
             <div class="anim-text negative-mt js-main-screen-text main_about_heading">
                 <div class="fw-container fw-container-floattext">
                     <div class="anim-text__title js-split-words2">INTRODUCTION</div>
-                    <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!! $introduction['intro'] !!} </div>
+                    <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!!
+                        $introduction['intro'] !!} </div>
                 </div>
             </div>
             <div class="anim-text negative-mt js-main-screen-text main_about_heading">
                 <div class="anim-text__title js-split-words2">YOUR PARTNER</div>
-                <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!! $introduction['partner'] !!} </div>
+                <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!! $introduction['partner']
+                    !!} </div>
             </div>
         </div>
     </section>
@@ -63,40 +65,27 @@ var_dump($aboutDetails);
             <div class="year_pole_1">
                 <div class="row">
                     <div class="col-md-2 year_pole_img_div">
-                        <img class="year_pole_img" src="/assets/images/2013.png">
+                        <img class="year_pole_img" src="{{ asset('storage/' . $steps[0]['image']) }}">
                     </div>
                     <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">
-                            Wins "Leadership Award"
-                        </p>
-                        <p class="year_pole_content">
-                            Founder wins the award in multi-domain forum covering various challengers of industry in
-                            India.
-                        </p>
+                        <p class="blue_color year_pole_heading">{!! $steps[1]['title'] !!}</p>
+                        <p class="year_pole_content">{!! $steps[1]['description'] !!}</p>
                     </div>
 
                     <div class="col-md-2 year_pole_img_div">
-                        <img class="year_pole_img" src="/assets/images/2016.png">
+                        <img class="year_pole_img" src="{{ asset('storage/' . $steps[2]['image']) }}">
                     </div>
                     <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">
-                            Adonia Offshore Consultants (AOC)
-                        </p>
-                        <p class="year_pole_content">
-                            Adonia Group starts its dedicated offshore technical consulting company.
-                        </p>
+                        <p class="blue_color year_pole_heading">{!! $steps[3]['title'] !!}</p>
+                        <p class="year_pole_content">{!! $steps[3]['description'] !!}</p>
                     </div>
 
                     <div class="col-md-2 year_pole_img_div">
-                        <img class="year_pole_img" src="/assets/images/2021.png">
+                        <img class="year_pole_img" src="{{ asset('storage/' . $steps[4]['image']) }}">
                     </div>
                     <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">
-                            NEW HORIZONS
-                        </p>
-                        <p class="year_pole_content">
-                            New stakeholders add strength to services provided by AOC.
-                        </p>
+                        <p class="blue_color year_pole_heading">{!! $steps[5]['title'] !!}</p>
+                        <p class="year_pole_content">{!! $steps[5]['description'] !!}</p>
                     </div>
                 </div>
             </div>
@@ -106,40 +95,27 @@ var_dump($aboutDetails);
             <div class="year_pole_2">
                 <div class="row">
                     <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">
-                            Adonia Group Journey Begins....
-                        </p>
-                        <p class="year_pole_content">
-                            Adonia started as Design Engineering company providing design support services.Company wins
-                            the award amongst various consultancy companies in India.
-                        </p>
+                        <p class="blue_color year_pole_heading">{!! $steps[0]['title'] !!}</p>
+                        <p class="year_pole_content">{!! $steps[0]['description'] !!}</p>
                     </div>
                     <div class="col-md-2 year_pole_img_div">
-                        <img class="year_pole_img" src="/assets/images/2015.png">
+                        <img class="year_pole_img" src="{{ asset('storage/' . $steps[1]['image']) }}">
                     </div>
 
                     <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">
-                            Wins "Marine & Offshore Design Consultants on the Year" Award"
-                        </p>
-                        <p class="year_pole_content">
-                            Company wins the award amongst various consultancy companies in India.
-                        </p>
+                        <p class="blue_color year_pole_heading">{!! $steps[2]['title'] !!}</p>
+                        <p class="year_pole_content">{!! $steps[2]['description'] !!}</p>
                     </div>
                     <div class="col-md-2 year_pole_img_div">
-                        <img class="year_pole_img" src="/assets/images/2018.png">
+                        <img class="year_pole_img" src="{{ asset('storage/' . $steps[3]['image']) }}">
                     </div>
 
                     <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">
-                            AOC awarded MWS Project
-                        </p>
-                        <p class="year_pole_content">
-                            Mumbai Trans Harbour Link (MTHL) – Atal Setu Project
-                        </p>
+                        <p class="blue_color year_pole_heading">{!! $steps[4]['title'] !!}</p>
+                        <p class="year_pole_content">{!! $steps[4]['description'] !!}</p>
                     </div>
                     <div class="col-md-2 year_pole_img_div">
-                        <img class="year_pole_img" src="/assets/images/2023.png">
+                        <img class="year_pole_img" src="{{ asset('storage/' . $steps[5]['image']) }}">
                     </div>
                 </div>
             </div>
@@ -150,38 +126,34 @@ var_dump($aboutDetails);
     <section id="year_pole_carousel" class="steps_mobile">
         <div id="pole_carousel" class="owl-carousel owl-theme">
             <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="/assets/images/2013_mobile.png" alt="2013">
-                <p class="blue_color year_pole_heading">Adonia Group Journey Begins.... </p>
-                <p class="year_pole_content">Adonia started as Design Engineering company providing design support
-                    services.Company wins the award amongst various consultancy companies in India. </p>
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[0]['image']) }}" alt="2013">
+                <p class="blue_color year_pole_heading">{!! $steps[0]['title'] !!}</p>
+                <p class="year_pole_content">{!! $steps[0]['description'] !!}</p>
             </div>
             <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="/assets/images/2015_mobile.png">
-                <p class="blue_color year_pole_heading">Wins "Leadership Award"</p>
-                <p class="year_pole_content">Founder wins the award in multi-domain forum covering various challengers
-                    of industry in India.</p>
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[1]['image']) }}">
+                <p class="blue_color year_pole_heading">{!! $steps[1]['title'] !!}</p>
+                <p class="year_pole_content">{!! $steps[1]['description'] !!}</p>
             </div>
             <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="/assets/images/2016_mobile.png" alt="2016">
-                <p class="blue_color year_pole_heading">Wins "Marine & Offshore Design Consultants on the Year" Award"
-                </p>
-                <p class="year_pole_content">Company wins the award amongst various consultancy companies in India. </p>
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[2]['image']) }}" alt="2016">
+                <p class="blue_color year_pole_heading">{!! $steps[2]['title'] !!}</p>
+                <p class="year_pole_content">{!! $steps[2]['description'] !!}</p>
             </div>
             <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="/assets/images/2018_mobile.png">
-                <p class="blue_color year_pole_heading">Adonia Offshore Consultants (AOC)</p>
-                <p class="year_pole_content">Adonia Group starts its dedicated offshore technical consulting company.
-                </p>
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[3]['image']) }}">
+                <p class="blue_color year_pole_heading">{!! $steps[3]['title'] !!}</p>
+                <p class="year_pole_content">{!! $steps[3]['description'] !!}</p>
             </div>
             <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="/assets/images/2021_mobile.png" alt="2021">
-                <p class="blue_color year_pole_heading">AOC awarded MWS Project</p>
-                <p class="year_pole_content">Mumbai Trans Harbour Link (MTHL) – Atal Setu Project</p>
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[4]['image']) }}" alt="2021">
+                <p class="blue_color year_pole_heading">{!! $steps[4]['title'] !!}</p>
+                <p class="year_pole_content">{!! $steps[4]['description'] !!}</p>
             </div>
             <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="/assets/images/2023_mobile.png">
-                <p class="blue_color year_pole_heading">NEW HORIZONS</p>
-                <p class="year_pole_content">New stakeholders add strength to services provided by AOC.</p>
+                <img class="year_pole_img" src="{{ asset('storage/' . $steps[5]['image']) }}">
+                <p class="blue_color year_pole_heading">{!! $steps[5]['title'] !!}</p>
+                <p class="year_pole_content">{!! $steps[5]['description'] !!}</p>
             </div>
         </div>
     </section>
@@ -199,73 +171,32 @@ var_dump($aboutDetails);
         </div>
         <div class="container expert_specialist_container">
             <div class="row expert_specialist_section">
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">SALVAGE MASTERS</span>
+                @isset($teams['expert'])
+                    @foreach ($teams['expert'] as $expert)
+                    <div class="col-md-4">
+                        <div class="team_work_div">
+                            <span class="team_work_text">{{ $expert }}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">OFFSHORE OIL & GAS MASTERS</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">NEW BUILDINGS</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">CARGO SPECIALISTS</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">PORTS</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">INSURANCE</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">SHIP RECYCLING</span>
-                    </div>
-                </div>
+                    @endforeach
+                @endisset
             </div>
+
         </div>
         <div class="career_below_font main_about_heading">
             <h4 class="pbtm0 js-split-words2 blue_color">DESIGNERS</h4>
         </div>
         <div class="container designers_container">
             <div class="row designers_section">
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">NAVAL ARCHITECTS</span>
+                @isset($teams['expert'])
+                    @foreach ($teams['designers'] as $designer)
+                    <div class="col-md-4">
+                        <div class="team_work_div">
+                            <span class="team_work_text">{{ $designer }}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">STRUCTURAL</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">MECHANICAL/ MARINE</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">ELECTRICAL</span>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">DRAFTSMAN</span>
-                    </div>
-                </div>
+                    @endforeach
+                @endisset
             </div>
         </div>
     </section>
@@ -307,22 +238,8 @@ var_dump($aboutDetails);
                 </div>
             </div>
             <div class="aboutports_right aboutports_right_text-2 paddleft50">
-                <p class="text_fotns">
-                    <b>VISION</b><br>
-                    Benchmarking the standard for excellence, innovation, and reliability in the maritime industry.
-                    We envision a world where every voyage is safeguarded, every asset is protected,
-                    and every maritime operation is conducted with precision and integrity.
-                </p>
-                <p class="text_fotns">
-                    <b>MISSION</b><br>
-                    Our mission is to provide unparalleled marine solutions that exceed the expectations of our clients
-                    while upholding the highest standards of professionalism, safety, and environmental stewardship.
-                    We are committed to delivering comprehensive, accurate, and timely services tailored to the unique
-                    needs of each client, empowering them to navigate the complexities of the maritime landscape with
-                    confidence and success. Through continuous innovation, strategic partnerships, and a steadfast
-                    dedication to quality, we strive to be the trusted partner of choice for all maritime needs,
-                    ensuring the safety, efficiency, and sustainability of maritime operations worldwide.
-                </p>
+                {!! $missionVision['mission'] !!}
+                
             </div>
         </div>
         <div class="main_about_heading padding50">
@@ -330,29 +247,11 @@ var_dump($aboutDetails);
         </div>
         <div class="platform_abouts_3">
             <div class="display_flex">
-                <div class="aboutports_right aboutports_right_text-2 paddright50 paddingleft53">
-                    <p class="text_fotns">
-                        <b>Uncompromising Quality</b><br>
-                        Quality is not just a commitment but a way of life for us at ADONIA. We adhere to the highest
-                        industry
-                        standards and employ cutting-edge technology to ensure that every project we undertake is
-                        executed with
-                        precision and integrity. Our unwavering dedication to quality sets us apart and ensures that
-                        your assets
-                        are safeguarded with the utmost care.
-                    </p>
-                    <p class="text_fotns">
-                        <b>Client - Centric Approach</b><br>
-                        Understanding the unique needs of our clients is at the heart of what we do.
-                        We believe in fostering strong, collaborative partnerships built on trust, transparency,
-                        and open communication. Whether you operate in shipping, offshore energy, or marine insurance,
-                        our tailored solutions are designed to address your specific challenges and drive success.
-                    </p>
-                </div>
+                <div class="aboutports_right aboutports_right_text-2 paddright50 paddingleft53"> {!! $ourvalues['values'] !!} </div>
                 <div class="aboutports_left aboutports_right_text-2">
                     <div class="reveal">
                         <div class="image-wrap">
-                            <img src="/assets/images/Our-Values.jpg">
+                            <img src="{{ asset('storage/' . $ourvalues['img']) }}">
                         </div>
                     </div>
                     <div class="vission_icons values_icons left50">
@@ -362,20 +261,8 @@ var_dump($aboutDetails);
             </div>
         </div>
         <div class="platform_abouts_4 paddingleft53 paddleft50">
-            <p class="text_fotns">
-                <b>Innovation And Adaptability</b><br>
-                In a dynamic and ever-evolving industry, innovation and adaptability are paramount.
-                At ADONIA, we embrace change and continuously strive to innovate our processes and services.
-                By staying ahead of the curve, we empower our clients with the insights and solutions needed
-                to navigate the complexities of the maritime landscape effectively.
-            </p>
-            <p class="text_fotns">
-                <b> Committed To Safety</b><br>
-                Safety is non-negotiable in the marine industry, and we prioritize it above all else.
-                From our rigorous safety protocols to our ongoing training initiatives, we are unwavering
-                in our commitment to ensuring the well-being of our team, our clients,
-                and the environment in which we operate.
-            </p>
+        {!! $ourvalues['values2'] !!}
+        
         </div>
     </section>
 </div>
