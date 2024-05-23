@@ -8,10 +8,10 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 
-class ContactController extends Controller
+class AboutController extends Controller
 {
     public function index() {
-        return view('backend.pages.contact.index');
+        return view('backend.pages.about.index');
     }
 
     public function home_banner(){
