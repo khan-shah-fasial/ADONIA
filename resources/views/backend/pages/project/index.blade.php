@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('page.name', 'About Page')
+@section('page.name', 'Project Page')
 
 @section('page.content')
 <div class="col-12">

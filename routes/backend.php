@@ -70,7 +70,19 @@ Route::post('/update-project-banner', [ProjectController::class, 'project_banner
 Route::post('/update-project-intro', [ProjectController::class, 'project_intro'])->name('project.intro');
 Route::post('/update-project-certificate', [ProjectController::class, 'project_certificate'])->name('project.certificate');
 
+Route::post('/update-career-banner', [CareerController::class, 'career_banner'])->name('career.banner');
+Route::post('/update-career-intro', [CareerController::class, 'career_intro'])->name('career.intro');
 
+Route::post('/update-contact-banner', [ContactController::class, 'contact_banner'])->name('contact.banner');
+Route::post('/update-contact-intro', [ContactController::class, 'contact_intro'])->name('contact.intro');
+
+Route::post('/update-business-banner', [BusinessController::class, 'business_banner'])->name('business.banner');
+Route::post('/update-business-intro', [BusinessController::class, 'business_intro'])->name('business.businesslist');
+
+Route::post('/update-products-banner', [ProductsController::class, 'products_banner'])->name('products.banner');
+Route::post('/update-products-radio-n-comm', [ProductsController::class, 'products_intro'])->name('products.radio-n-comm');
+Route::post('/update-products-oil-n-spill', [ProductsController::class, 'products_intro'])->name('products.oil-n-spill');
+Route::post('/update-products-aids-to-nav', [ProductsController::class, 'products_intro'])->name('products.aids-to-nav');
 
 //User
 Route::group(['prefix' => 'profile'], function () {
