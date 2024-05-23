@@ -124,6 +124,7 @@
                             @php
                                 $Steps = json_decode($details->steps);
                                 $j = 0;
+                                $m = 0;
                             @endphp
 
                             <input type="hidden" name="page" value="about">
@@ -146,6 +147,26 @@
                                             value="{{ $Steps[0]->image }}">
                                     </div>
                                 @endif
+
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Icon Mobile 1 <span class="red">*</span> <span class="font-size11">(Max file
+                                                size 80kb - 1125*196)</span></label>
+                                        <input class="form-control" type="file" id="image" name="image_mobile[]"
+                                            @if (!isset($Steps[0]->mobile_image)) required @endif>
+                                    </div>
+                                </div>
+                                @if (isset($Steps[0]->mobile_image))
+                                    <div class="form-group mb-3 mx-2 col-sm-2">
+                                        <div style="width: 100px;">
+                                            <img src="{{ asset('storage/' . $Steps[0]->mobile_image) }}" class="img-thumbnail">
+                                        </div>
+                                        <input type="hidden" name="old_image_mobile{{ $m++ }}"
+                                            value="{{ $Steps[0]->mobile_image }}">
+                                    </div>
+                                @endif
+
+
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 1 <span class="red">*</span> </label>
@@ -181,6 +202,25 @@
                                             value="{{ $Steps[1]->image }}">
                                     </div>
                                 @endif
+
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Icon Mobile 2 <span class="red">*</span> <span class="font-size11">(Max file
+                                                size 80kb - 1125*196)</span></label>
+                                        <input class="form-control" type="file" id="image" name="image_mobile[]"
+                                            @if (!isset($Steps[1]->mobile_image)) required @endif>
+                                    </div>
+                                </div>
+                                @if (isset($Steps[1]->mobile_image))
+                                    <div class="form-group mb-3 mx-2 col-sm-2">
+                                        <div style="width: 100px;">
+                                            <img src="{{ asset('storage/' . $Steps[1]->mobile_image) }}" class="img-thumbnail">
+                                        </div>
+                                        <input type="hidden" name="old_image_mobile{{ $m++ }}"
+                                            value="{{ $Steps[1]->mobile_image }}">
+                                    </div>
+                                @endif
+
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 2 <span class="red">*</span> </label>
@@ -216,6 +256,25 @@
                                             value="{{ $Steps[2]->image }}">
                                     </div>
                                 @endif
+
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Icon Mobile 3 <span class="red">*</span> <span class="font-size11">(Max file
+                                                size 80kb - 1125*196)</span></label>
+                                        <input class="form-control" type="file" id="image" name="image_mobile[]"
+                                            @if (!isset($Steps[2]->mobile_image)) required @endif>
+                                    </div>
+                                </div>
+                                @if (isset($Steps[2]->mobile_image))
+                                    <div class="form-group mb-3 mx-2 col-sm-2">
+                                        <div style="width: 100px;">
+                                            <img src="{{ asset('storage/' . $Steps[2]->mobile_image) }}" class="img-thumbnail">
+                                        </div>
+                                        <input type="hidden" name="old_image_mobile{{ $m++ }}"
+                                            value="{{ $Steps[2]->mobile_image }}">
+                                    </div>
+                                @endif
+
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 3 <span class="red">*</span> </label>
@@ -251,6 +310,25 @@
                                             value="{{ $Steps[3]->image }}">
                                     </div>
                                 @endif
+
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Icon Mobile 4 <span class="red">*</span> <span class="font-size11">(Max file
+                                                size 80kb - 1125*196)</span></label>
+                                        <input class="form-control" type="file" id="image" name="image_mobile[]"
+                                            @if (!isset($Steps[3]->mobile_image)) required @endif>
+                                    </div>
+                                </div>
+                                @if (isset($Steps[3]->mobile_image))
+                                    <div class="form-group mb-3 mx-2 col-sm-2">
+                                        <div style="width: 100px;">
+                                            <img src="{{ asset('storage/' . $Steps[3]->mobile_image) }}" class="img-thumbnail">
+                                        </div>
+                                        <input type="hidden" name="old_image_mobile{{ $m++ }}"
+                                            value="{{ $Steps[3]->mobile_image }}">
+                                    </div>
+                                @endif
+
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 4 <span class="red">*</span> </label>
@@ -286,6 +364,25 @@
                                             value="{{ $Steps[4]->image }}">
                                     </div>
                                 @endif
+
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Icon Mobile 5 <span class="red">*</span> <span class="font-size11">(Max file
+                                                size 80kb - 1125*196)</span></label>
+                                        <input class="form-control" type="file" id="image" name="image_mobile[]"
+                                            @if (!isset($Steps[4]->mobile_image)) required @endif>
+                                    </div>
+                                </div>
+                                @if (isset($Steps[4]->mobile_image))
+                                    <div class="form-group mb-3 mx-2 col-sm-2">
+                                        <div style="width: 100px;">
+                                            <img src="{{ asset('storage/' . $Steps[4]->mobile_image) }}" class="img-thumbnail">
+                                        </div>
+                                        <input type="hidden" name="old_image_mobile{{ $m++ }}"
+                                            value="{{ $Steps[4]->mobile_image }}">
+                                    </div>
+                                @endif
+
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 5 <span class="red">*</span> </label>
@@ -322,6 +419,25 @@
                                             value="{{ $Steps[5]->image }}">
                                     </div>
                                 @endif
+
+                                <div class="col-sm-4">
+                                    <div class="form-group mb-3">
+                                        <label>Icon Mobile 6 <span class="red">*</span> <span class="font-size11">(Max file
+                                                size 80kb - 1125*196)</span></label>
+                                        <input class="form-control" type="file" id="image" name="image_mobile[]"
+                                            @if (!isset($Steps[5]->mobile_image)) required @endif>
+                                    </div>
+                                </div>
+                                @if (isset($Steps[5]->mobile_image))
+                                    <div class="form-group mb-3 mx-2 col-sm-2">
+                                        <div style="width: 100px;">
+                                            <img src="{{ asset('storage/' . $Steps[5]->mobile_image) }}" class="img-thumbnail">
+                                        </div>
+                                        <input type="hidden" name="old_image_mobile{{ $m++ }}"
+                                            value="{{ $Steps[5]->mobile_image }}">
+                                    </div>
+                                @endif
+
                                 <div class="col-sm-4">
                                     <div class="form-group mb-3">
                                         <label>Title 6 <span class="red">*</span> </label>
@@ -432,8 +548,8 @@
                             <div class="col-sm-12">
 
                                 <div class="form-group mb-3">
-                                    <label for="Expert">Expert <span class="red">*</span></label>
-                                    <div id="replace_key_add_more" style=""> @php $d = 1;
+                                    <label for="Expert">Designers <span class="red">*</span></label>
+                                    <div id="replace_key_add_more2" style=""> @php $d = 1;
                                     if(!empty($Designers)) { foreach ($Designers as $row) { @endphp
                                         <div class="replace_key">
                                             <div class="form-group">

@@ -131,6 +131,26 @@ class AboutController extends Controller
             }
         }
 
+        // Storing new image
+        $newImageMobile = [];
+        if ($request->has('image_mobile')) {
+            foreach ($request->file('image_mobile') as $index => $file) {
+                $ImagePath2 = $file->store('assets/project/', 'public');
+                $newImageMobile[$index] = $ImagePath2;
+            }
+        }
+
+        $Image2 = [];
+        foreach ($title as $key => $name) {
+            if (isset($newImageMobile[$key])) {
+                $Image2[$key] = $newImageMobile[$key];
+            } else {
+                $old2 = "old_image_mobile$key";
+                $Image2[$key] = $request->$old2 ?? null;
+            }
+        }
+
+
         $steps = [];
 
         // Creating the business array
@@ -138,6 +158,7 @@ class AboutController extends Controller
             $steps[$i] = [
                 'title' => $title[$i],
                 'image' => $Image[$i],
+                'mobile_image' => $Image2[$i],
                 'description' => $description[$i]
             ];
         }

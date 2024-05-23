@@ -7,6 +7,10 @@
     <div class="card widget-inline">
         <div class="card-body p-0">
 
+            @php
+                $details = DB::table('pages')->where('page_name', 'contact')->first();
+            @endphp
+
             <!-----==================== contact banner ==========----------------------->
 
             <div class="card m-3">
@@ -20,17 +24,30 @@
                         enctype="multipart/form-data">
                         @csrf
 
+                        @php
+                            $banner = $details->banners;
+                        @endphp
+
+                        <input type="hidden" name="page" value="contact">
+
                         <div class="row">
-                            <div class="col-sm-10">
+                            <div class="col-sm-9">
                                 <div class="form-group mb-3">
-                                    <label>Banner 1 <span class="red">*</span> <span class="font-size11">(Max file
+                                    <label>Banner <span class="red">*</span> <span class="font-size11">(Max file
                                             size 80kb - 1125*196)</span></label>
-                                    <input class="form-control" type="file" id="image" name="Banner[]">
+                                    <input class="form-control" type="file" id="image" name="Banner" required>
                                 </div>
+                            </div>
+                            <div class="col-sm-3">
+                                @if (!empty($banner))
+                                    <div style="width: 150px;">
+                                        <img src="{{ asset('storage/' . $banner) }}" class="img-thumbnail">
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
-                        <div class="col-sm-1" style="float: right;">
+                        <div class="col-sm-1 mt-2" style="float: right;">
                             <div class="form-group d-grid mb-3 text-end">
                                 <button type="submit" class="btn btn-block btn-primary">Save</button>
                             </div>
@@ -53,79 +70,85 @@
                         <hr>
                     </div>
 
-                    <form id="contact_intro_form" action="{{ url(route('contact.intro')) }}" method="post"
+                    <form id="contact_intro_form" action="{{ url(route('contact.all_contacts')) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
+
+                        @php
+                            $Contacts = json_decode($details->contacts);
+                        @endphp
+                        
+                        <input type="hidden" name="page" value="contact">
 
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Address 1<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Address 1" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert Address 1" name="address_1"
+                                    value="{{ isset($Contacts->address_1) ? $Contacts->address_1 : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Address 2<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Address 2" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert Address 2" name="address_2"
+                                    value="{{ isset($Contacts->address_2) ? $Contacts->address_2 : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Email<span class="red">*</span></label>
-                                    <input type="email" class="form-control" placeholder="Insert Email" name="title[]"
-                                        value="" required>
+                                    <input type="email" class="form-control" placeholder="Insert Email" name="email"
+                                        value="{{ isset($Contacts->email) ? $Contacts->email : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Website URL<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Website URL" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert Website URL" name="url"
+                                        value="{{ isset($Contacts->url) ? $Contacts->url : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Phone 1<span class="red">*</span></label>
-                                    <input type="number" class="form-control" placeholder="Insert Phone 1" name="title[]"
-                                        value="" required>
+                                    <input type="number" class="form-control" placeholder="Insert Phone 1" name="phone_1"
+                                        value="{{ isset($Contacts->phone_1) ? $Contacts->phone_1 : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Phone 2<span class="red">*</span></label>
-                                    <input type="number" class="form-control" placeholder="Insert Phone 2" name="title[]"
-                                        value="" required>
+                                    <input type="number" class="form-control" placeholder="Insert Phone 2" name="phone_2"
+                                        value="{{ isset($Contacts->phone_2) ? $Contacts->phone_2 : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Facebook URL<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Facebook URL" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert Facebook URL" name="fb_url"
+                                        value="{{ isset($Contacts->fb_url) ? $Contacts->fb_url : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>LinkedIn URL<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert LinkedIn URL" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert LinkedIn URL" name="linkedin_url"
+                                        value="{{ isset($Contacts->linkedin_url) ? $Contacts->linkedin_url : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Twitter URL<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Twitter URL" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert Twitter URL" name="twitter_url"
+                                        value="{{ isset($Contacts->twitter_url) ? $Contacts->twitter_url : '' }}" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Instagram URL<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Instagram URL" name="title[]"
-                                        value="" required>
+                                    <input type="text" class="form-control" placeholder="Insert Instagram URL" name="inst_url"
+                                        value="{{ isset($Contacts->inst_url) ? $Contacts->inst_url : '' }}" required>
                                 </div>
                             </div>
                         </div>
