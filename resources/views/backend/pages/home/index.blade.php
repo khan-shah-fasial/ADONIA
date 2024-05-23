@@ -263,15 +263,22 @@
                                                         <div class="row">
     
                                                             <div class="col col-sm-6">
-                                                                <input class="form-control" style="margin-bottom: 5px;"
-                                                                    type="file" id="image" name="icon[]" @if (empty($row->icon)) required @endif>
+                                                                // <input class="form-control" style="margin-bottom: 5px;"
+                                                                //     type="file" id="image" name="icon[]" @if (empty($row->icon)) required @endif>
 
-                                                                    <div style="width: 100px;">
-                                                                        <img src="{{ asset('storage/' . $row->icon) }}" class="img-thumbnail">
-                                                                    </div>
+                                                                //     <div style="width: 100px;">
+                                                                //         <img src="{{ asset('storage/' . $row->icon) }}" class="img-thumbnail">
+                                                                //     </div>
 
     
-                                                                <input type="hidden" name="old_icon{{ $i - 1 }}" value="{{ $row->icon }}">
+                                                                // <input type="hidden" name="old_icon{{ $i - 1 }}" value="{{ $row->icon }}">
+                                                                
+                                                                <textarea class="form-control" name="icon[]" rows="5" required>{{ $row->icon }}</textarea>
+
+                                                                <div style="width: 100px;">
+                                                                    {{ $row->icon }}
+                                                                </div>
+
                                                             </div>
     
                                                             <div class="col col-sm-6">

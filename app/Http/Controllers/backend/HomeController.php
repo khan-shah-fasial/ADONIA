@@ -146,6 +146,7 @@ class HomeController extends Controller
     public function home_business(Request $request){
 
         $validator = Validator::make($request->all(), [
+            'icon' => 'required',
             'icon_name' => 'required',
         ]);
 
@@ -156,28 +157,31 @@ class HomeController extends Controller
             ], 200);
         }
 
-        // Storing new icons
-        $newIcons = [];
-        if($request->has('icon')){
-            foreach ($request->file('icon') as $index => $file) {
-                $iconsPath = $file->store('assets/icons/', 'public');
-                $newIcons[$index] = $iconsPath;
-            }
-        }
+        // // Storing new icons
+        // $newIcons = [];
+        // if($request->has('icon')){
+        //     foreach ($request->file('icon') as $index => $file) {
+        //         $iconsPath = $file->store('assets/icons/', 'public');
+        //         $newIcons[$index] = $iconsPath;
+        //     }
+        // }
 
+
+        // $icon_name = $request->icon_name;
+        // $icon = [];
+
+        // // Assigning new or old icons
+        // foreach ($icon_name as $key => $name) {
+        //     if (isset($newIcons[$key])) {
+        //         $icon[$key] = $newIcons[$key];
+        //     } else {
+        //         $old = "old_icon$key";
+        //         $icon[$key] = $request->$old ?? null;
+        //     }
+        // }
 
         $icon_name = $request->icon_name;
-        $icon = [];
-
-        // Assigning new or old icons
-        foreach ($icon_name as $key => $name) {
-            if (isset($newIcons[$key])) {
-                $icon[$key] = $newIcons[$key];
-            } else {
-                $old = "old_icon$key";
-                $icon[$key] = $request->$old ?? null;
-            }
-        }
+        $icon = $request->icon;
 
         $business = [];
 
