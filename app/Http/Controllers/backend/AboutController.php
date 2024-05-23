@@ -95,7 +95,7 @@ class AboutController extends Controller
 
     public function about_steps(Request $request){
 
-
+        
         
     }
 

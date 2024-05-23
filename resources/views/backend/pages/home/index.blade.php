@@ -263,6 +263,7 @@
                                                         <div class="row">
     
                                                             <div class="col col-sm-6">
+                                                                {{--
                                                                 // <input class="form-control" style="margin-bottom: 5px;"
                                                                 //     type="file" id="image" name="icon[]" @if (empty($row->icon)) required @endif>
 
@@ -271,7 +272,7 @@
                                                                 //     </div>
 
     
-                                                                // <input type="hidden" name="old_icon{{ $i - 1 }}" value="{{ $row->icon }}">
+                                                                // <input type="hidden" name="old_icon{{ $i - 1 }}" value="{{ $row->icon }}"> --}}
                                                                 
                                                                 <textarea class="form-control" name="icon[]" rows="5" required>{{ $row->icon }}</textarea>
 
