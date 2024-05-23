@@ -56,6 +56,9 @@ Route::post('/update-home-project', [HomeController::class, 'home_project'])->na
 
 
 
+
+
+
 //User
 Route::group(['prefix' => 'profile'], function () {
     Route::get('/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
