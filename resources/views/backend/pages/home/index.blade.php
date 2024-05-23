@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     @if (isset($banner[0]))
-                                        <div style="width: 300px;">
+                                        <div style="width: 100px;">
                                             <img src="{{ asset('storage/' . $banner[0]) }}" class="img-thumbnail">
                                         </div>
                                     @endif
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     @if (isset($banner[1]))
-                                        <div style="width: 300px;">
+                                        <div style="width: 100px;">
                                             <img src="{{ asset('storage/' . $banner[1]) }}" class="img-thumbnail">
                                         </div>    
                                     @endif
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     @if (isset($banner[2]))
-                                        <div style="width: 300px;">
+                                        <div style="width: 100px;">
                                             <img src="{{ asset('storage/' . $banner[2]) }}" class="img-thumbnail">
                                         </div>    
                                     @endif
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     @if (isset($banner[3]))
-                                        <div style="width: 300px;"> 
+                                        <div style="width: 100px;"> 
                                             <img src="{{ asset('storage/' . $banner[3]) }}" class="img-thumbnail">
                                         </div>
                                     @endif
@@ -116,7 +116,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     @if (isset($banner[4]))
-                                        <div style="width: 300px;">
+                                        <div style="width: 100px;">
                                             <img src="{{ asset('storage/' . $banner[4]) }}" class="img-thumbnail">
                                         </div>
                                     @endif
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     @if (isset($banner[5]))
-                                        <div style="width: 300px;">
+                                        <div style="width: 100px;">
                                             <img src="{{ asset('storage/' . $banner[5]) }}" class="img-thumbnail">
                                         </div>    
                                     @endif
