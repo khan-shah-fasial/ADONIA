@@ -67,7 +67,7 @@ Route::post('/update-about-mnv-section', [AboutController::class, 'about_mnv_sec
 Route::post('/update-about-our-values', [AboutController::class, 'about_our_values'])->name('about.our_values');
 
 Route::post('/update-project-banner', [ProjectController::class, 'project_banner'])->name('project.banner');
-Route::post('/update-project-intro', [ProjectController::class, 'project_intro'])->name('project.intro');
+Route::post('/update-project-complete', [ProjectController::class, 'project_complete'])->name('project.complete');
 Route::post('/update-project-certificate', [ProjectController::class, 'project_certificate'])->name('project.certificate');
 
 Route::post('/update-career-banner', [CareerController::class, 'career_banner'])->name('career.banner');

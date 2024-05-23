@@ -11,11 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class AboutController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('backend.pages.about.index');
     }
 
-    public function about_banner(Request $request){
+    public function about_banner(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'Banner' => 'required',
@@ -27,7 +29,7 @@ class AboutController extends Controller
                 'notification' => $validator->errors()->all()
             ], 200);
         }
-        
+
         $file = $request->file('Banner');
         $bannerPath = $file->store('assets/banner/', 'public');
 
@@ -35,7 +37,7 @@ class AboutController extends Controller
             'banners' => $bannerPath,
         ]);
 
-        if($result){
+        if ($result) {
             $response = [
                 'status' => true,
                 'notification' => 'About Banners Save successfully!',
@@ -48,10 +50,10 @@ class AboutController extends Controller
         }
 
         return response()->json($response);
-
     }
 
-    public function about_intro(Request $request){
+    public function about_intro(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'intro' => 'required',
@@ -63,7 +65,7 @@ class AboutController extends Controller
                 'status' => false,
                 'notification' => $validator->errors()->all()
             ], 200);
-        }   
+        }
 
         $intro_data = $request->intro;
         $partner_data = $request->partner;
@@ -77,7 +79,7 @@ class AboutController extends Controller
             'introduction' => json_encode($intro),
         ]);
 
-        if($result){
+        if ($result) {
             $response = [
                 'status' => true,
                 'notification' => 'About Intro Save successfully!',
@@ -90,10 +92,10 @@ class AboutController extends Controller
         }
 
         return response()->json($response);
-        
     }
 
-    public function about_steps(Request $request){
+    public function about_steps(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
@@ -112,7 +114,7 @@ class AboutController extends Controller
 
         // Storing new image
         $newImage = [];
-        if($request->has('image')){
+        if ($request->has('image')) {
             foreach ($request->file('image') as $index => $file) {
                 $ImagePath = $file->store('assets/project/', 'public');
                 $newImage[$index] = $ImagePath;
@@ -136,15 +138,15 @@ class AboutController extends Controller
             $steps[$i] = [
                 'title' => $title[$i],
                 'image' => $Image[$i],
-                'description' => $description[$i] 
+                'description' => $description[$i]
             ];
         }
 
         $result = DB::table('pages')->where('page_name', $request->page)->update([
             'steps' => json_encode($steps),
         ]);
-        
-        if($result){
+
+        if ($result) {
             $response = [
                 'status' => true,
                 'notification' => 'About Steps Save successfully!',
@@ -157,10 +159,10 @@ class AboutController extends Controller
         }
 
         return response()->json($response);
-        
     }
 
-    public function about_teamwork(Request $request){
+    public function about_teamwork(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'expert' => 'required',
@@ -177,7 +179,7 @@ class AboutController extends Controller
         $expert = $request->expert;
         $designers = $request->designers;
 
-        if($request->has('img')){
+        if ($request->has('img')) {
             $file = $request->file('img');
             $ImagePath = $file->store('assets/banner/', 'public');
         } else {
@@ -204,8 +206,8 @@ class AboutController extends Controller
             'teams' => json_encode($teamwork),
             'team_img' => $ImagePath,
         ]);
-        
-        if($result){
+
+        if ($result) {
             $response = [
                 'status' => true,
                 'notification' => 'About Team Work Save successfully!',
@@ -218,10 +220,10 @@ class AboutController extends Controller
         }
 
         return response()->json($response);
-
     }
 
-    public function about_mnv_section(Request $request){
+    public function about_mnv_section(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'mission' => 'required',
@@ -234,7 +236,7 @@ class AboutController extends Controller
             ], 200);
         }
 
-        if($request->has('image')){
+        if ($request->has('image')) {
             $file = $request->file('image');
             $ImagePath = $file->store('assets/banner/', 'public');
         } else {
@@ -251,8 +253,8 @@ class AboutController extends Controller
         $result = DB::table('pages')->where('page_name', $request->page)->update([
             'mission_vision' => json_encode($mission),
         ]);
-        
-        if($result){
+
+        if ($result) {
             $response = [
                 'status' => true,
                 'notification' => 'About Mission Save successfully!',
@@ -265,10 +267,10 @@ class AboutController extends Controller
         }
 
         return response()->json($response);
-
     }
 
-    public function about_our_values(Request $request){
+    public function about_our_values(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'values' => 'required',
@@ -281,7 +283,7 @@ class AboutController extends Controller
             ], 200);
         }
 
-        if($request->has('image')){
+        if ($request->has('image')) {
             $file = $request->file('image');
             $ImagePath = $file->store('assets/banner/', 'public');
         } else {
@@ -302,8 +304,8 @@ class AboutController extends Controller
         $result = DB::table('pages')->where('page_name', $request->page)->update([
             'our_values' => json_encode($values),
         ]);
-        
-        if($result){
+
+        if ($result) {
             $response = [
                 'status' => true,
                 'notification' => 'About Our Values Save successfully!',
@@ -316,8 +318,5 @@ class AboutController extends Controller
         }
 
         return response()->json($response);
-
     }
-
-
 }
