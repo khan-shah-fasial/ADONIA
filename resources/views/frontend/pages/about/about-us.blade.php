@@ -13,8 +13,10 @@ footer {
     background: #bdbec2 !important;
 }
 </style>
-
-<section class="about_banner_img inner_banner_section">
+@php 
+var_dump($aboutDetails);
+@endphp
+<section class="inner_banner_section" style=" background-image:url('{{ asset('storage/' . $aboutDetails->banners) }}')">
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">ABOUT US</h1>
@@ -27,22 +29,12 @@ footer {
             <div class="anim-text negative-mt js-main-screen-text main_about_heading">
                 <div class="fw-container fw-container-floattext">
                     <div class="anim-text__title js-split-words2">INTRODUCTION</div>
-                    <div class="anim-text__desc js-animated-text translation-block text_fotns"> At ADONIA, we navigate
-                        the depths to deliver unparalleled marine solutions tailored to meet your every maritime need.
-                        With a steadfast commitment to precision, professionalism, and safety, we stand as your trusted
-                        partner in the vast expanse of the marine industry. </div>
+                    <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!! $introduction['intro'] !!} </div>
                 </div>
             </div>
             <div class="anim-text negative-mt js-main-screen-text main_about_heading">
                 <div class="anim-text__title js-split-words2">YOUR PARTNER</div>
-                <div class="anim-text__desc js-animated-text translation-block text_fotns"> Whether you require a
-                    comprehensive vessel inspection, expert guidance on regulatory compliance, or support in mitigating
-                    risks, ADONIA is here to steer you in the right direction. With a steadfast dedication to excellence
-                    and a passion for the sea, we are your trusted partner on <br>
-                    <br> the high seas.
-                </div>
-                <div class="anim-text__desc js-animated-text translation-block text_fotns"> Embark on a journey of
-                    excellence with ADONIA. Let us navigate the way to success together. </div>
+                <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!! $introduction['partner'] !!} </div>
             </div>
         </div>
     </section>

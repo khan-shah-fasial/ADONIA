@@ -369,9 +369,14 @@
                             @php
                                 $teamwork = json_decode($details->teams);
                                 $team_img = $details->team_img;
+                                if(!empty($teamwork)){
+                                    $Expert = $teamwork->expert;
+                                    $Designers = $teamwork->designers;
+                                } else {
+                                    $Expert = '';
+                                    $Designers = '';
+                                }
 
-                                $Expert = $teamwork->expert;
-                                $Designers = $teamwork->designers;
                             @endphp
 
                             <input type="hidden" name="page" value="about">
