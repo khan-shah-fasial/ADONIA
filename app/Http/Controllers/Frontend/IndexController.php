@@ -14,17 +14,14 @@ use Illuminate\Support\Facades\Mail;
 class IndexController extends Controller
 {
     public function index() {
-    // Fetch the details from the 'pages' table where 'page_name' is 'home'
+        
     $homeDetails = DB::table('pages')->where('page_name', 'home')->first();
 
-    // Decode the JSON string into an array
     $banners = json_decode($homeDetails->banners, true);
     $marques = json_decode($homeDetails->marque, true);
     $businessData = json_decode($homeDetails->business, true);
     $counter = json_decode($homeDetails->counters, true);
     $project = json_decode($homeDetails->projects, true);
-
-    // Pass the data to the view
     return view('frontend.pages.home.index', compact('homeDetails', 'banners', 'marques', 'businessData', 'counter', 'project'));
     }
     
@@ -51,8 +48,13 @@ class IndexController extends Controller
     }
 
     public function about_Us(){
-        return view('frontend.pages.about.about-us');
+
+        $aboutDetails = DB::table('pages')->where('page_name', 'about')->first();
+        $introduction = json_decode($aboutDetails->introduction, true);
+    
+        return view('frontend.pages.about.about-us', compact('aboutDetails','introduction'));
     }
+    
 
 //--------------=============================== Pages ================================------------------------------
 
