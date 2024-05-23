@@ -160,15 +160,162 @@ class AboutController extends Controller
         
     }
 
-    public function about_business(Request $request){
+    public function about_teamwork(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'expert' => 'required',
+            'designers' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'notification' => $validator->errors()->all()
+            ], 200);
+        }
+
+        $expert = $request->expert;
+        $designers = $request->designers;
+
+        if($request->has('img')){
+            $file = $request->file('img');
+            $ImagePath = $file->store('assets/banner/', 'public');
+        } else {
+            $ImagePath = $request->old_img;
+        }
+
+
+        // $teamwork = [];
+
+        // for ($i = 0; $i < count($name); $i++) {
+        //     $teamwork[$i] = [
+        //         'expert' => $expert[$i],
+        //         'designers' => $designers[$i]
+        //     ];
+        // }
+
+        $teamwork = [
+            'expert' => $expert,
+            'designers' => $designers
+        ];
+
+
+        $result = DB::table('pages')->where('page_name', $request->page)->update([
+            'teams' => json_encode($teamwork),
+            'team_img' => $ImagePath,
+        ]);
+        
+        if($result){
+            $response = [
+                'status' => true,
+                'notification' => 'About Team Work Save successfully!',
+            ];
+        } else {
+            $response = [
+                'status' => false,
+                'notification' => 'Somthing Went Wrong!',
+            ];
+        }
+
+        return response()->json($response);
 
     }
 
-    public function about_counter(Request $request){
+    public function about_mnv_section(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'mission' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'notification' => $validator->errors()->all()
+            ], 200);
+        }
+
+        if($request->has('image')){
+            $file = $request->file('image');
+            $ImagePath = $file->store('assets/banner/', 'public');
+        } else {
+            $ImagePath = $request->old_img;
+        }
+
+        $mission = $request->mission;
+
+        $mission = [
+            'mission' => $mission,
+            'img' => $ImagePath
+        ];
+
+        $result = DB::table('pages')->where('page_name', $request->page)->update([
+            'mission_vision' => json_encode($mission),
+        ]);
+        
+        if($result){
+            $response = [
+                'status' => true,
+                'notification' => 'About Mission Save successfully!',
+            ];
+        } else {
+            $response = [
+                'status' => false,
+                'notification' => 'Somthing Went Wrong!',
+            ];
+        }
+
+        return response()->json($response);
 
     }
 
-    public function about_project(Request $request){
+    public function about_our_values(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'values' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'notification' => $validator->errors()->all()
+            ], 200);
+        }
+
+        if($request->has('image')){
+            $file = $request->file('image');
+            $ImagePath = $file->store('assets/banner/', 'public');
+        } else {
+            $ImagePath = $request->old_img;
+        }
+
+        $values = $request->values;
+        $values2 = $request->values2;
+
+        $values = [
+            'values' => $values,
+            'values2' => $values2,
+            'img' => $ImagePath
+        ];
+
+
+
+        $result = DB::table('pages')->where('page_name', $request->page)->update([
+            'our_values' => json_encode($values),
+        ]);
+        
+        if($result){
+            $response = [
+                'status' => true,
+                'notification' => 'About Our Values Save successfully!',
+            ];
+        } else {
+            $response = [
+                'status' => false,
+                'notification' => 'Somthing Went Wrong!',
+            ];
+        }
+
+        return response()->json($response);
 
     }
 
