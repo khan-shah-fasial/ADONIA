@@ -170,7 +170,7 @@
                             @csrf
 
                             <input type="hidden" name="page" value="home">
-
+                            <label for="intro">Intro Description<span class="red">*</span></label>
                             <textarea class="trumbowyg form-control" name="intro" rows="5" required>{{ $details->introduction }}</textarea>
 
                             <div class="col-sm-1 mt-2" style="float: right;">
@@ -206,15 +206,15 @@
                             <input type="hidden" name="page" value="home">
 
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="marque[]" value="{{ isset($marque[0]) ? $marque[0] : '' }}" required>
+                                <input type="text" placeholder="Enter Text" class="form-control" name="marque[]" value="{{ isset($marque[0]) ? $marque[0] : '' }}" required>
                             </div>
 
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="marque[]" value="{{ isset($marque[1]) ? $marque[1] : '' }}" required>
+                                <input type="text" placeholder="Enter Text" class="form-control" name="marque[]" value="{{ isset($marque[1]) ? $marque[1] : '' }}" required>
                             </div>
 
                             <div class="form-group mb-3">
-                                <input type="text" class="form-control" name="marque[]" value="{{ isset($marque[2]) ? $marque[2] : '' }}" required>
+                                <input type="text" placeholder="Enter Text" class="form-control" name="marque[]" value="{{ isset($marque[2]) ? $marque[2] : '' }}" required>
                             </div>
 
 
@@ -261,8 +261,13 @@
                                                     <div class="col-md-11">
     
                                                         <div class="row">
-    
                                                             <div class="col col-sm-6">
+                                                                
+                                                                <input class="form-control" name="icon_name[]"
+                                                                    placeholder="Enter Icon Name here..." value="{{ $row->name }}" required>
+
+                                                            </div>
+                                                            <div class="d-flex col col-sm-6">
                                                                 {{--
                                                                 // <input class="form-control" style="margin-bottom: 5px;"
                                                                 //     type="file" id="image" name="icon[]" @if (empty($row->icon)) required @endif>
@@ -273,21 +278,15 @@
 
     
                                                                 // <input type="hidden" name="old_icon{{ $i - 1 }}" value="{{ $row->icon }}"> --}}
-                                                                
-                                                                <textarea class="form-control" name="icon[]" rows="5" required>{{ $row->icon }}</textarea>
+                                                                <textarea class="form-control" placeholder="Enter SVG Code Here" name="icon[]" rows="5" required>{{ $row->icon }}</textarea>
 
                                                                 <div style="width: 100px;">
-                                                                    {{ $row->icon }}
+                                                                    {!! $row->icon !!}
                                                                 </div>
 
                                                             </div>
     
-                                                            <div class="col col-sm-6">
-    
-                                                                <input class="form-control" name="icon_name[]"
-                                                                    placeholder="Enter Icon Name here..." value="{{ $row->name }}" required>
-    
-                                                            </div>
+                                                            
     
                                                         </div>
     
@@ -309,13 +308,13 @@
                                                     // </div> 
                                                     --}}
                                                     <div class="col col-sm-6">
-                                                        <textarea class="form-control" name="icon[]" rows="5" required></textarea>
-                                                    </div>
-    
-                                                    <div class="col col-sm-6">
                                                         <input class="form-control" name="icon_name[]"
                                                             placeholder="Enter Icon Name here..." required>
                                                     </div>
+                                                    <div class="col col-sm-6">
+                                                        <textarea class="form-control" placeholder="Enter SVG Code" name="icon[]" rows="5" required></textarea>
+                                                    </div>
+    
     
                                                 </div>
                                             </div>
@@ -363,37 +362,37 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="number[]" value="{{ isset($Counter[0]) ? $Counter[0]->number : '' }}" required>
+                                    <input type="text" placeholder="Enter Counter Number" class="form-control" name="number[]" value="{{ isset($Counter[0]) ? $Counter[0]->number : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="name[]" value="{{ isset($Counter[0]) ? $Counter[0]->name : '' }}" required>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="number[]" value="{{ isset($Counter[1]) ? $Counter[1]->number : '' }}" required>
-                                </div>
-                                <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="name[]" value="{{ isset($Counter[1]) ? $Counter[1]->name : '' }}" required>
+                                    <input type="text" placeholder="Enter Counter Text" class="form-control" name="name[]" value="{{ isset($Counter[0]) ? $Counter[0]->name : '' }}" required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="number[]" value="{{ isset($Counter[2]) ? $Counter[2]->number : '' }}" required>
+                                    <input type="text" placeholder="Enter Counter Number" class="form-control" name="number[]" value="{{ isset($Counter[1]) ? $Counter[1]->number : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="name[]" value="{{ isset($Counter[2]) ? $Counter[2]->name : '' }}" required>
+                                    <input type="text" placeholder="Enter Counter Text" class="form-control" name="name[]" value="{{ isset($Counter[1]) ? $Counter[1]->name : '' }}" required>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="number[]" value="{{ isset($Counter[3]) ? $Counter[3]->number : '' }}" required>
+                                    <input type="text" placeholder="Enter Counter Number" class="form-control" name="number[]" value="{{ isset($Counter[2]) ? $Counter[2]->number : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-5">
-                                    <input type="text" class="form-control" name="name[]" value="{{ isset($Counter[3]) ? $Counter[3]->name : '' }}" required>
+                                    <input type="text" placeholder="Enter Counter Text" class="form-control" name="name[]" value="{{ isset($Counter[2]) ? $Counter[2]->name : '' }}" required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group mb-3 mx-2 col-md-5">
+                                    <input type="text" placeholder="Enter Counter Number" class="form-control" name="number[]" value="{{ isset($Counter[3]) ? $Counter[3]->number : '' }}" required>
+                                </div>
+                                <div class="form-group mb-3 mx-2 col-md-5">
+                                    <input type="text" placeholder="Enter Counter Text" class="form-control" name="name[]" value="{{ isset($Counter[3]) ? $Counter[3]->name : '' }}" required>
                                 </div>
                             </div>
 
@@ -433,13 +432,13 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="text" class="form-control" name="title[]" value="{{ isset($project[0]) ? $project[0]->title : '' }}" required>
+                                    <input type="text" placeholder="Enter Title Text" class="form-control" name="title[]" value="{{ isset($project[0]) ? $project[0]->title : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="date" class="form-control" name="date[]" value="{{ isset($project[0]) ? $project[0]->date : '' }}" required>
+                                    <input type="date" placeholder="Select Date" class="form-control" name="date[]" value="{{ isset($project[0]) ? $project[0]->date : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="file" class="form-control" name="image[]" value="" @if(!isset($project[0]->image)) required @endif>
+                                    <input type="file" placeholder="Select file" class="form-control" name="image[]" value="" @if(!isset($project[0]->image)) required @endif>
                                 </div>
                                 @if (isset($project[0]->image))
                                     <div class="form-group mb-3 mx-2 col-md-3">
@@ -450,6 +449,7 @@
                                     </div>
                                 @endif
                                 <div class="form-group mb-3 mx-2 col-md-12">
+                                    <label for="description">Description<span class="red">*</span></label>
                                     <textarea class="trumbowyg form-control" name="description[]" rows="5" required>
                                         {{ isset($project[0]) ? $project[0]->description : '' }}
                                     </textarea>
@@ -458,13 +458,13 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="text" class="form-control" name="title[]" value="{{ isset($project[1]) ? $project[1]->title : '' }}" required>
+                                    <input type="text" placeholder="Enter Title Text" class="form-control" name="title[]" value="{{ isset($project[1]) ? $project[1]->title : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="date" class="form-control" name="date[]" value="{{ isset($project[1]) ? $project[1]->date : '' }}" required>
+                                    <input type="date" placeholder="Select Date" class="form-control" name="date[]" value="{{ isset($project[1]) ? $project[1]->date : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="file" class="form-control" name="image[]" value="" @if(!isset($project[1]->image)) required @endif>
+                                    <input type="file" placeholder="Select file" class="form-control" name="image[]" value="" @if(!isset($project[1]->image)) required @endif>
                                 </div>
                                 @if (isset($project[1]->image))
                                     <div class="form-group mb-3 mx-2 col-md-3">
@@ -475,7 +475,8 @@
                                     </div>
                                 @endif
                                 <div class="form-group mb-3 mx-2 col-md-12">
-                                    <textarea class="trumbowyg form-control" name="description[]" rows="5" required>
+                                    <label for="description">Description<span class="red">*</span></label>
+                                    <textarea class="trumbowyg form-control" placeholder="Enter Description" name="description[]" rows="5" required>
                                         {{ isset($project[1]) ? $project[1]->description : '' }}
                                     </textarea>
                                 </div>
@@ -483,13 +484,13 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="text" class="form-control" name="title[]" value="{{ isset($project[2]) ? $project[2]->title : '' }}" required>
+                                    <input type="text" placeholder="Enter Title Text"class="form-control" name="title[]" value="{{ isset($project[2]) ? $project[2]->title : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="date" class="form-control" name="date[]" value="{{ isset($project[2]) ? $project[2]->date : '' }}" required>
+                                    <input type="date" placeholder="Select date" class="form-control" name="date[]" value="{{ isset($project[2]) ? $project[2]->date : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="file" class="form-control" name="image[]" value="" @if(!isset($project[2]->image)) required @endif>
+                                    <input type="file" placeholder="Select Image file" class="form-control" name="image[]" value="" @if(!isset($project[2]->image)) required @endif>
                                 </div>
                                 @if (isset($project[2]->image))
                                     <div class="form-group mb-3 mx-2 col-md-3">
@@ -500,7 +501,8 @@
                                     </div>
                                 @endif
                                 <div class="form-group mb-3 mx-2 col-md-12">
-                                    <textarea class="trumbowyg form-control" name="description[]" rows="5" required>
+                                    <label for="description">Description<span class="red">*</span></label>
+                                    <textarea class="trumbowyg form-control" placeholder="Enter Description" name="description[]" rows="5" required>
                                         {{ isset($project[2]) ? $project[2]->description : '' }}
                                     </textarea>
                                 </div>
@@ -508,13 +510,13 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="text" class="form-control" name="title[]" value="{{ isset($project[3]) ? $project[3]->title : '' }}" required>
+                                    <input type="text" placeholder="Enter Title Text" class="form-control" name="title[]" value="{{ isset($project[3]) ? $project[3]->title : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="date" class="form-control" name="date[]" value="{{ isset($project[3]) ? $project[3]->date : '' }}" required>
+                                    <input type="date" placeholder="Select Date" class="form-control" name="date[]" value="{{ isset($project[3]) ? $project[3]->date : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="file" class="form-control" name="image[]" value="" @if(!isset($project[3]->image)) required @endif>
+                                    <input type="file" placeholder="Select image file" class="form-control" name="image[]" value="" @if(!isset($project[3]->image)) required @endif>
                                 </div>
                                 @if (isset($project[3]->image))
                                     <div class="form-group mb-3 mx-2 col-md-3">
@@ -525,7 +527,8 @@
                                     </div>
                                 @endif
                                 <div class="form-group mb-3 mx-2 col-md-12">
-                                    <textarea class="trumbowyg form-control" name="description[]" rows="5" required>
+                                    <label for="description">Description<span class="red">*</span></label>
+                                    <textarea class="trumbowyg form-control" placeholder="Enter Description" name="description[]" rows="5" required>
                                         {{ isset($project[3]) ? $project[3]->description : '' }}
                                     </textarea>
                                 </div>
@@ -533,13 +536,13 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="text" class="form-control" name="title[]" value="{{ isset($project[4]) ? $project[4]->title : '' }}" required>
+                                    <input type="text" placeholder="Enter Title Text" class="form-control" name="title[]" value="{{ isset($project[4]) ? $project[4]->title : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="date" class="form-control" name="date[]" value="{{ isset($project[4]) ? $project[4]->date : '' }}" required>
+                                    <input type="date" placeholder="Select date" class="form-control" name="date[]" value="{{ isset($project[4]) ? $project[4]->date : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="file" class="form-control" name="image[]" value="" @if(!isset($project[4]->image)) required @endif>
+                                    <input type="file" placeholder="Select image file" class="form-control" name="image[]" value="" @if(!isset($project[4]->image)) required @endif>
                                 </div>
                                 @if (isset($project[4]->image))
                                     <div class="form-group mb-3 mx-2 col-md-3">
@@ -550,6 +553,7 @@
                                     </div>
                                 @endif
                                 <div class="form-group mb-3 mx-2 col-md-12">
+                                    <label for="description">Description<span class="red">*</span></label>
                                     <textarea class="trumbowyg form-control" name="description[]" rows="5" required>
                                         {{ isset($project[4]) ? $project[4]->description : '' }}
                                     </textarea>
@@ -558,13 +562,13 @@
 
                             <div class="row">
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="text" class="form-control" name="title[]" value="{{ isset($project[5]) ? $project[5]->title : '' }}" required>
+                                    <input type="text" placeholder="Enter Title Text" class="form-control" name="title[]" value="{{ isset($project[5]) ? $project[5]->title : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="date" class="form-control" name="date[]" value="{{ isset($project[5]) ? $project[5]->date : '' }}" required>
+                                    <input type="date" placeholder="Select date" class="form-control" name="date[]" value="{{ isset($project[5]) ? $project[5]->date : '' }}" required>
                                 </div>
                                 <div class="form-group mb-3 mx-2 col-md-3">
-                                    <input type="file" class="form-control" name="image[]" value="" @if(!isset($project[5]->image)) required @endif>
+                                    <input type="file" placeholder="Select image" class="form-control" name="image[]" value="" @if(!isset($project[5]->image)) required @endif>
                                 </div>
                                 @if (isset($project[5]->image))
                                     <div class="form-group mb-3 mx-2 col-md-3">
@@ -575,7 +579,7 @@
                                     </div>
                                 @endif
                                 <div class="form-group mb-3 mx-2 col-md-12">
-                                    <textarea class="trumbowyg form-control" name="description[]" rows="5" required>
+                                    <textarea class="trumbowyg form-control" placeholder="Enter Description" name="description[]" rows="5" required>
                                         {{ isset($project[5]) ? $project[5]->description : '' }}
                                     </textarea>
                                 </div>
@@ -661,13 +665,13 @@
                     <div class="row">
     
                         <div class="col col-sm-6">
-                        <!--<input class="form-control" style="margin-bottom: 5px;" type="file" id="image" name="icon[]" required>-->
-                            <textarea class="form-control" style="margin-bottom: 5px;" name="icon[]" rows="5" required></textarea>
-                        </div>
-    
-                        <div class="col col-sm-6">
                             <input class="form-control" name="icon_name[]" placeholder="Enter Icon Name here..." required> 
                         </div>
+                        <div class="col col-sm-6">
+                        <!--<input class="form-control" style="margin-bottom: 5px;" type="file" id="image" name="icon[]" required>-->
+                            <textarea class="form-control" placeholder="Enter SVG Code Here" style="margin-bottom: 5px;" name="icon[]" rows="5" required></textarea>
+                        </div>
+    
     
                     </div>
                 </div>
