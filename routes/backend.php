@@ -7,6 +7,12 @@ use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\backend\AuthorController;
 use App\Http\Controllers\backend\UserController;
 use App\Http\Controllers\backend\HomeController;
+use App\Http\Controllers\backend\AboutController;
+use App\Http\Controllers\backend\ProjectController;
+use App\Http\Controllers\backend\CareerController;
+use App\Http\Controllers\backend\ContactController;
+use App\Http\Controllers\backend\BusinessController;
+use App\Http\Controllers\backend\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,17 +38,17 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('backend.d
 
 Route::get('/home-page', [HomeController::class, 'index'])->name('backend.home.page');
 
-Route::get('/about-page', [DashboardController::class, 'index'])->name('backend.about.page');
+Route::get('/about-page', [AboutController::class, 'index'])->name('backend.about.page');
 
-Route::get('/project-page', [DashboardController::class, 'index'])->name('backend.project.page');
+Route::get('/project-page', [ProjectController::class, 'index'])->name('backend.project.page');
 
-Route::get('/career-page', [DashboardController::class, 'index'])->name('backend.career.page');
+Route::get('/career-page', [CareerController::class, 'index'])->name('backend.career.page');
 
-Route::get('/caontact-page', [DashboardController::class, 'index'])->name('backend.contact.page');
+Route::get('/contact-page', [ContactController::class, 'index'])->name('backend.contact.page');
 
-Route::get('/business-page', [DashboardController::class, 'index'])->name('backend.business.page');
+Route::get('/business-page', [BusinessController::class, 'index'])->name('backend.business.page');
 
-Route::get('/products-page', [DashboardController::class, 'index'])->name('backend.products.page');
+Route::get('/products-page', [ProductsController::class, 'index'])->name('backend.products.page');
 
 //---------------------- pages -------------------------------------
 
@@ -53,6 +59,16 @@ Route::post('/update-home-business', [HomeController::class, 'home_business'])->
 Route::post('/update-home-counter', [HomeController::class, 'home_counter'])->name('home.counter');
 Route::post('/update-home-project', [HomeController::class, 'home_project'])->name('home.project');
 
+Route::post('/update-about-banner', [AboutController::class, 'about_banner'])->name('about.banner');
+Route::post('/update-about-intro', [AboutController::class, 'about_intro'])->name('about.intro');
+Route::post('/update-about-steps', [AboutController::class, 'about_steps'])->name('about.steps');
+Route::post('/update-about-teamwork', [AboutController::class, 'about_teamwork'])->name('about.teamwork');
+Route::post('/update-about-mnv-section', [AboutController::class, 'about_mnv_section'])->name('about.mnv_section');
+Route::post('/update-about-our-values', [AboutController::class, 'about_our_values'])->name('about.our_values');
+
+Route::post('/update-project-banner', [ProjectController::class, 'project_banner'])->name('project.banner');
+Route::post('/update-project-intro', [ProjectController::class, 'project_intro'])->name('project.intro');
+Route::post('/update-project-certificate', [ProjectController::class, 'project_certificate'])->name('project.certificate');
 
 
 
