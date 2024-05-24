@@ -31,10 +31,17 @@ class IndexController extends Controller
     public function contact_Us(){
         return view('frontend.pages.contactus.contact-us');
     }
-    public function projects(){
-        return view('frontend.pages.projects.projects-and-accreditations');
-    }
+    public function projects() {
 
+        $projectDetails = DB::table('pages')->where('page_name', 'project')->first();
+    
+        $projects = json_decode($projectDetails->projects, true);
+
+        $certificates = json_decode($projectDetails->certificate, true);
+        // Pass the data to the view
+        return view('frontend.pages.projects.projects-and-accreditations', compact('projectDetails', 'projects', 'certificates'));
+    }
+    
     public function products(){
         return view('frontend.pages.products.products');
     }
