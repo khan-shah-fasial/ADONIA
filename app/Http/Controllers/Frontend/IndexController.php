@@ -51,7 +51,10 @@ class IndexController extends Controller
     }
 
     public function career(){
-        return view('frontend.pages.career.careers');
+
+        $careerDetails = DB::table('pages')->where('page_name', 'career')->first();
+
+        return view('frontend.pages.career.careers', compact('careerDetails'));
     }
 
     public function about_Us(){
