@@ -101,6 +101,7 @@
                         <div class="buisnes_section">
                             <div class="container">
                                 <div class="row justify-content-center">
+                                @isset($businessData[0])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -110,15 +111,19 @@
                                             <p>{!! $businessData[0]['name'] !!}</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-6">
-                                        <div class="buisness_box">
-                                            <div class="buis_img hvr-bounce-in1">
-                                                {!! $businessData[1]['icon'] !!}
-                                                <!-- <img src="http://adonia.webtesting.pw/wp-content/uploads/2024/03/VESSEL-OWNERS.png"> -->
-                                            </div>
-                                            <p>{!! $businessData[1]['name'] !!}</p>
+                                @endisset
+                                @isset($businessData[1])
+                                <div class="col-md-3 col-6">
+                                    <div class="buisness_box">
+                                        <div class="buis_img hvr-bounce-in1">
+                                            {!! $businessData[1]['icon'] !!}
+                                            <!-- <img src="http://adonia.webtesting.pw/wp-content/uploads/2024/03/VESSEL-OWNERS.png"> -->
                                         </div>
+                                        <p>{!! $businessData[1]['name'] !!}</p>
                                     </div>
+                                </div>
+                                @endisset
+                                @isset($businessData[2])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -128,6 +133,8 @@
                                             <p>{!! $businessData[2]['name'] !!}</p>
                                         </div>
                                     </div>
+                                @endisset
+                                @isset($businessData[3])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -137,6 +144,8 @@
                                             <p>{!! $businessData[3]['name'] !!}</p>
                                         </div>
                                     </div>
+                                @endisset
+                                @isset($businessData[4])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -146,6 +155,8 @@
                                             <p>{!! $businessData[4]['name'] !!}</p>
                                         </div>
                                     </div>
+                                    @endisset
+                                    @isset($businessData[0])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -155,6 +166,8 @@
                                             <p>{!! $businessData[5]['name'] !!}</p>
                                         </div>
                                     </div>
+                                    @endisset
+                                    @isset($businessData[0])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -164,6 +177,8 @@
                                             <p>{!! $businessData[6]['name'] !!}</p>
                                         </div>
                                     </div>
+                                    @endisset
+                                    @isset($businessData[0])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -173,6 +188,8 @@
                                             <p>{!! $businessData[7]['name'] !!}</p>
                                         </div>
                                     </div>
+                                    @endisset
+                                    @isset($businessData[0])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -182,6 +199,8 @@
                                             <p>{!! $businessData[8]['name'] !!}</p>
                                         </div>
                                     </div>
+                                    @endisset
+                                    @isset($businessData[0])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -191,6 +210,7 @@
                                             <p>{!! $businessData[9]['name'] !!}</p>
                                         </div>
                                     </div>
+                                    @endisset
                                 </div>
                             </div>
                         </div>
@@ -302,7 +322,7 @@
                         @php
                             echo html_entity_decode($projects['description']);
                         @endphp
-                        <a href="projects-and-accreditations.php" class="work__link">Read More</a>
+                        <a href="{{ route('projects') }}" class="work__link">Read More</a>
                     </div>
                 </div>
                 @endforeach
