@@ -117,6 +117,15 @@
                                                                 </textarea>
                                                             </div>
 
+                                                            @if (!empty($row->image))
+                                                                <div class="form-group mb-3 mx-2 col-md-2">
+                                                                <div style="width: 100px;">
+                                                                    @php echo html_entity_decode($row->image) @endphp
+                                                                    </div> 
+                                                                    <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                                </div>
+                                                            @endif
+
                                                             <div class="form-group mb-3 mx-2 col-md-5">
                                                                 <label>Insert Title:</label>
                                                                 <input type="text" class="form-control"
@@ -251,6 +260,15 @@
                                                                 </textarea>
                                                             </div>
 
+                                                            @if (!empty($row->image))
+                                                                <div class="form-group mb-3 mx-2 col-md-2">
+                                                                <div style="width: 100px;">
+                                                                    @php echo html_entity_decode($row->image) @endphp
+                                                                    </div> 
+                                                                    <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                                </div>
+                                                            @endif
+
                                                             <div class="form-group mb-3 mx-2 col-md-5">
                                                                 <label>Insert Title:</label>
                                                                 <input type="text" class="form-control"
@@ -291,6 +309,16 @@
                                                             <textarea class="form-control" name="image[]" rows="5" required>
                                                             </textarea>
                                                         </div>
+
+                                                        @if (!empty($row->image))
+                                                            <div class="form-group mb-3 mx-2 col-md-2">
+                                                            <div style="width: 100px;">
+                                                                @php echo html_entity_decode($row->image) @endphp
+                                                                </div> 
+                                                                <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                            </div>
+                                                        @endif
+
                                                         <div class="form-group mb-3 mx-2 col-md-5">
                                                             <label>Insert Title:</label>
                                                             <input type="text" class="form-control"
@@ -384,6 +412,15 @@
                                                                 {{ $row->image }}
                                                             </textarea>
                                                         </div>
+
+                                                        @if (!empty($row->image))
+                                                            <div class="form-group mb-3 mx-2 col-md-2">
+                                                            <div style="width: 100px;">
+                                                                @php echo html_entity_decode($row->image) @endphp
+                                                                </div> 
+                                                                <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                            </div>
+                                                        @endif
 
                                                         <div class="form-group mb-3 mx-2 col-md-5">
                                                             <label>Insert Title:</label>
