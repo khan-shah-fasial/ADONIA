@@ -3578,10 +3578,15 @@ section#year_pole{
     }
 }
 /* Screen size: 1441px - 1500px */
-@media screen and (min-width: 1441px) and (max-width: 1500px) {
+@media screen and (min-width: 1441px) and (max-width: 1552px) {
     .header__logo img {
         width: 280px;
     }
+
+    .inner_banner_section {
+      padding: 160px 0px 160px 0px;
+    }
+    
     .aboutports_right_text-2.paddleft50 {
         padding-right: 180px;
         padding-left: 60px;
@@ -3596,6 +3601,11 @@ section#year_pole{
     .header__logo img {
         width: 280px;
     }
+
+    .inner_banner_section {
+      padding: 186px 0px 184px 0px;
+    }
+
     .platform_abouts_4 {
         padding: 0px 210px 40px;
     }
@@ -3612,6 +3622,10 @@ section#year_pole{
 
 /* Screen size: 1701px - 1800px 75%*/
 @media screen and (min-width: 1701px) and (max-width: 1800px) {
+
+    .inner_banner_section {
+      padding: 180px 0px 180px 0px;
+    }
 
     .year_pole_1>div div:nth-child(1), .year_pole_2>div div:nth-child(1) {
         position: relative;
@@ -3649,6 +3663,10 @@ section#year_pole{
         width: 280px;
     }
     
+    .inner_banner_section {
+      padding: 200px 0px 200px 0px;
+    }
+
     .vission_icons {
         position: absolute;
         top: 38%;
@@ -3741,12 +3759,17 @@ section#year_pole{
 
 @media screen and (min-width: 2001px) and (max-width: 2400px){
  
- .news__row {
+  .news__row {
     padding: 56.2px 20px;
-}   
-.buisness_list div p {
-    font-size: 18px;
-}
+  }   
+
+  .inner_banner_section {
+    padding: 250px 0px 210px 0px;
+  }
+
+  .buisness_list div p {
+      font-size: 18px;
+  }
 }
 
 
@@ -3755,6 +3778,11 @@ section#year_pole{
     .header__logo img {
         width: 280px;
     }
+
+    .inner_banner_section {
+      padding: 325px 0px 325px 0px;
+    }
+  
     .aboutports_right_text-2.paddleft50 {
         padding-right: 760px;
         padding-left: 60px;
@@ -3777,6 +3805,11 @@ section#year_pole{
     .header__logo img {
         width: 280px;
     }
+
+    .inner_banner_section {
+      padding: 500px 0px 500px 0px;
+    }
+
     .buisness_list div p {
     font-size: 18px;
 }
@@ -3787,6 +3820,11 @@ section#year_pole{
     .header__logo img {
         width: 280px;
     }
+
+    .inner_banner_section {
+      padding: 680px 0px 680px 0px;
+    }
+
     .buisness_list div p {
     font-size: 18px;
 }
