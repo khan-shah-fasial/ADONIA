@@ -1,38 +1,43 @@
+@php
+    $details = DB::table('pages')->where('page_name', 'contact')->first();
+    $contacts = json_decode($details->contacts, true);
+@endphp
+
 <footer>
     <div class="container">
         <div class="row">
             <div class="menu_list">
                 <ul>
                     <li>
-                        <a href="index.php">Home</a>
+                        <a href="{{ route('index') }}">Home</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="about-us.php">About Us</a>
+                        <a href="{{ route('about-us') }}">About Us</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="our-business.php">Our Business</a>
+                        <a href="{{ route('our-business') }}">Our Business</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="products.php">Products</a>
+                        <a href="{{ route('products') }}">Products</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="projects-and-accreditations.php">Projects and Accreditations</a>
+                        <a href="{{ route('projects') }}">Projects and Accreditations</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="careers.php">Career</a>
+                        <a href="{{ route('career') }}">Career</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="#">Brochure</a>
+                        <a href="{{ route('index') }}">Brochure</a>
                     </li>
                     <li> | </li>
                     <li>
-                        <a href="contact-us.php">Contact Us</a>
+                        <a href="{{ route('contact') }}">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -41,29 +46,29 @@
                     <div>
                         <i class="fa-solid fa-map-marker-alt"></i>
                     </div>
-                    <span>
-                        <strong>Head Office: </strong>105, Raheja Plaza, <br> Shah Industrial Estate, Off New Link Rd,
-                        <br> Andheri West, Mumbai-400053, India </span>
+                    @isset($contacts['address_1'])
+                        {!! $contacts['address_1'] !!} 
+                    @endisset 
                 </div>
                 <div class="menu_list scoail_media">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="{{ $contacts['fb_url']}}">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ $contacts['twitter_url']}}">
                                 <i class="fa-brands fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ $contacts['inst_url']}}">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ $contacts['linkedin_url']}}">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </a>
                         </li>
@@ -73,17 +78,18 @@
             <div class="footer_lft num_n_email">
                 <div class="footerleft contact_number">
                     <h4>
-                        <a href="tel:+91 9920222233">
-                            <i class="fa-solid fa-phone"></i> +91 9920222233 </a>
-                    </h4> | <h4>
-                        <a href="tel:+91-9920148497">
-                            </i>+91-9920148497 </a>
+                    <a href="tel:+{{ $contacts['phone_1'] }}"> <i class="fa-solid fa-phone"></i>+{{ $contacts['phone_1'] }}
+                    </a>                        
+                    </h4> |
+                    <h4>
+                        <a href="tel:+{{ $contacts['phone_2'] }}">
+                            </i>+{{ $contacts['phone_2'] }} </a>
                     </h4>
                 </div>
                 <div class="footerright">
                     <h4>
-                        <a href="mailto:info@adoniaoffshore.com">
-                            <i class="fa-regular fa-envelope"></i> info@adoniaoffshore.com </a>
+                        <a href="mailto:{{ $contacts['email'] }}">
+                            <i class="fa-regular fa-envelope"></i> {{ $contacts['email'] }} </a>
                     </h4>
                 </div>
             </div>

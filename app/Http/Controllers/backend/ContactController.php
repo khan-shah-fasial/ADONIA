@@ -62,6 +62,7 @@ class ContactController extends Controller
             'fb_url' => 'required',
             'linkedin_url' => 'required',
             'twitter_url' => 'required',
+            'inst_url' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -80,7 +81,8 @@ class ContactController extends Controller
             'phone_2' => $request->phone_2,
             'fb_url' => $request->fb_url,
             'linkedin_url' => $request->linkedin_url,
-            'twitter_url' => $request->twitter_url
+            'twitter_url' => $request->twitter_url,
+            'inst_url' => $request->inst_url
         ];
 
         $result = DB::table('pages')->where('page_name', $request->page)->update([

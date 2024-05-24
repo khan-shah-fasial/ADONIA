@@ -8,7 +8,7 @@
 
 @section('page.content')
 
-<section class="contact_banner inner_banner_section">
+<section class="inner_banner_section" style="background-image: url('@isset($contactDetails->banners){{ asset('storage/' . $contactDetails->banners) }}@endisset')">
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">Contact Us</h1>
@@ -18,8 +18,7 @@
 
 <div class="anim-text negative-mt js-main-screen-text pt-md-5 pt-4">
     <div class="container">
-        <div class="anim-text__desc js-animated-text translation-block font-28 padd200">We're Social, so if you'd like
-            to talk about your project, get in touch </div>
+        <div class="anim-text__desc js-animated-text translation-block font-28 padd200">We're Social, so if you'd like to talk about your project, get in touch</div>
     </div>
 </div>
 <div class="container">
@@ -29,18 +28,26 @@
         </div>
         <div class="rightlinks">
             <ul>
-                <li>
-                    <i class="fa-solid fa-phone"></i>
-                    <a href="tel:+91 22 4962129"> +91 22 4962129</a> / <a href="tel:+91 22 4962129">+91-9920148497</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-map-marker-alt"></i>
-                    <a href="mailto:info@adoniaoffshore.com">info@adoniaoffshore.com</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-globe"></i>
-                    <a href="www.adoniaoffshore.com">www.adoniaoffshore.com</a>
-                </li>
+                @isset($contacts['phone_1'])
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+{{ $contacts['phone_1'] }}"> +{{ $contacts['phone_1'] }}</a> @isset($contacts['phone_2']) 
+                        / <a href="tel:+{{ $contacts['phone_2'] }}"> +{{ $contacts['phone_2'] }}</a>
+                        @endisset
+                    </li>
+                @endisset
+                @isset($contacts['email'])
+                    <li>
+                        <i class="fa-solid fa-map-marker-alt"></i>
+                        <a href="mailto:{{ $contacts['email'] }}">{{ $contacts['email'] }}</a>
+                    </li>
+                @endisset
+                @isset($contacts['url'])
+                    <li>
+                        <i class="fa-solid fa-globe"></i>
+                        <a href="{{ $contacts['url'] }}">{{ $contacts['url'] }}</a>
+                    </li>
+                @endisset
             </ul>
         </div>
         <div class="contact_address col-md-6">
@@ -48,17 +55,17 @@
                 <div>
                     <i class="fa-solid fa-map-marker-alt"></i>
                 </div>
-                <span>
-                    <strong>Head Office: </strong>105, Raheja Plaza, <br> Shah Industrial Estate, Off New Link Rd, <br>
-                    Andheri West, Mumbai-400053, India </span>
+                @isset($contacts['address_1'])
+                    {!! $contacts['address_1'] !!} 
+                @endisset 
             </div>
             <div class="footerleft">
                 <div>
                     <i class="fa-solid fa-map-marker-alt"></i>
                 </div>
-                <span>
-                    <strong>Branch Office: </strong>1066, Heera Panna Shopping Center, Hiranandani Gardens, Powai,
-                    Mumbai - 400076, India </span>
+                @isset($contacts['address_2'])
+                    {!! $contacts['address_2'] !!} 
+                @endisset 
             </div>
         </div>
     </div>

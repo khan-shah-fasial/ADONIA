@@ -8,10 +8,6 @@
 
 @section('page.content')
 
-@php
-var_dump($careerDetails);
-@endphp
-
 <style>
 footer {
     background: #bdbec2 !important;
@@ -32,8 +28,12 @@ footer {
     <div class="anim-text negative-mt js-main-screen-text">
         <div class="fw-container fw-container-floattext">
             <div class="career_below_font main_about_heading">
-                <h4 class="pbtm0 js-split-words2">Explore your knowledge and skill</h4>
-                <h4 class="team_fonts1 pbtm0 js-split-words2"><span> with us</span></h4>
+              @isset($introduction['title'])
+                  <h4 class="pbtm0 js-split-words2">{{ $introduction['title'] }}</h4>
+              @endisset
+              @isset($introduction['title2'])
+                  <h4 class="team_fonts1 pbtm0 js-split-words2"><span>{{ $introduction['title2'] }}</span></h4>
+              @endisset
             </div>
             <!--<div class="main_about_heading spacing41">
                 
@@ -61,7 +61,7 @@ footer {
         </div>
     </div>
     <div class="col-md-6 buisness_section_img_left">
-        <img class="width100" src="/assets/images/carrer_images1.jpg">
+        <img class="width100" src="@isset($introduction['image']){{ asset('storage/' . $introduction['image']) }}@endisset">
     </div>
 </div>
 
