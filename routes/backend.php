@@ -77,7 +77,7 @@ Route::post('/update-contact-banner', [ContactController::class, 'contact_banner
 Route::post('/update-contact-all-contacts', [ContactController::class, 'contact_all_contacts'])->name('contact.all_contacts');
 
 Route::post('/update-business-banner', [BusinessController::class, 'business_banner'])->name('business.banner');
-Route::post('/update-business-intro', [BusinessController::class, 'business_intro'])->name('business.businesslist');
+Route::post('/update-business-list', [BusinessController::class, 'business_steps'])->name('business.businesslist');
 
 Route::post('/update-products-banner', [ProductsController::class, 'products_banner'])->name('products.banner');
 Route::post('/update-products-radio-n-comm', [ProductsController::class, 'products_intro'])->name('products.radio-n-comm');
