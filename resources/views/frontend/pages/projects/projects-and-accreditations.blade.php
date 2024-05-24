@@ -8,9 +8,7 @@
 
 @section('page.content')
 
-<section class="inner_banner_section" style=" background-image:url('
-    @isset($projectDetails->banners) {{ asset('storage/' . $projectDetails->banners) }} @endisset
-    ')">
+<section class="inner_banner_section" style="background-image: url('@isset($projectDetails->banners){{ asset('storage/' . $projectDetails->banners) }}@endisset')">
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">PROJECTS AND ACCREDITATIONS</h1>
@@ -25,8 +23,10 @@
         <div class="row">
             @foreach ($projects as $project)
             <div class="col-md-4 completed_project_div">
-                <img class="" src="{{ asset('storage/' . $project['image']) }}" alt="{{ $project['title'] }}">
-                <p class="completed_project_label">{{ $project['title'] }}</p>
+                @if(isset($project['image']) && isset($project['title']))
+                    <img class="" src="{{ asset('storage/' . $project['image']) }}" alt="{{ $project['title'] }}">
+                    <p class="completed_project_label">{{ $project['title'] }}</p>
+                @endif
                 {{-- Uncomment this line if you want to display the date --}}
                 <!-- <p class="completed_project_date">{{ \Carbon\Carbon::parse($project['date'])->format('M d, Y') }}</p> -->
                 <!-- <p class="completed_project_content">

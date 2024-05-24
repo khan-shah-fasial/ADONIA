@@ -13,9 +13,8 @@ footer {
     background: #bdbec2 !important;
 }
 </style>
-<section class="inner_banner_section" style=" background-image:url('
-@isset($aboutDetails->banners) {{ asset('storage/' . $aboutDetails->banners) }} @endisset
-')">
+<section class="inner_banner_section" style="background-image: url('@isset($aboutDetails->banners){{ asset('storage/' . $aboutDetails->banners) }}@endisset')">
+
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">ABOUT US</h1>
@@ -28,14 +27,20 @@ footer {
             <div class="anim-text negative-mt js-main-screen-text main_about_heading">
                 <div class="fw-container fw-container-floattext">
                     <div class="anim-text__title js-split-words2">INTRODUCTION</div>
-                    <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!!
-                        $introduction['intro'] !!} </div>
+                    @isset($introduction['intro'] )
+                        <div class="anim-text__desc js-animated-text translation-block text_fotns">
+                            {!! $introduction['intro'] !!}
+                        </div>
+                    @endisset   
                 </div>
             </div>
             <div class="anim-text negative-mt js-main-screen-text main_about_heading">
                 <div class="anim-text__title js-split-words2">YOUR PARTNER</div>
-                <div class="anim-text__desc js-animated-text translation-block text_fotns"> {!! $introduction['partner']
-                    !!} </div>
+                @isset($introduction['partner'] )
+                <div class="anim-text__desc js-animated-text translation-block text_fotns"> 
+                     {!! $introduction['partner'] !!}
+                </div>
+                @endisset
             </div>
         </div>
     </section>
@@ -63,29 +68,41 @@ footer {
         <div class="">
             <div class="year_pole_1">
                 <div class="row">
+                    @isset( $steps[0]['image'] )
                     <div class="col-md-2 year_pole_img_div">
                         <img class="year_pole_img" src="{{ asset('storage/' . $steps[0]['image']) }}">
                     </div>
-                    <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">{!! $steps[1]['title'] !!}</p>
-                        <p class="year_pole_content">{!! $steps[1]['description'] !!}</p>
-                    </div>
+                    @endisset
+                    @if(isset($steps[1]['title']) && isset($steps[1]['description']))
+                        <div class="col-md-2 year_pole_text_div">
+                            <p class="blue_color year_pole_heading">{!! $steps[1]['title'] !!}</p>
+                            <p class="year_pole_content">{!! $steps[1]['description'] !!}</p>
+                        </div>
+                    @endif
 
+
+                    @isset( $steps[2]['image'] )
                     <div class="col-md-2 year_pole_img_div">
                         <img class="year_pole_img" src="{{ asset('storage/' . $steps[2]['image']) }}">
                     </div>
+                    @endisset
+                    @if(isset($steps[3]['title']) && isset($steps[3]['description']))
                     <div class="col-md-2 year_pole_text_div">
                         <p class="blue_color year_pole_heading">{!! $steps[3]['title'] !!}</p>
                         <p class="year_pole_content">{!! $steps[3]['description'] !!}</p>
                     </div>
-
+                    @endisset
+                    @isset( $steps[4]['image'] )
                     <div class="col-md-2 year_pole_img_div">
                         <img class="year_pole_img" src="{{ asset('storage/' . $steps[4]['image']) }}">
                     </div>
+                    @endisset
+                    @if(isset($steps[5]['title']) && isset($steps[5]['description']))
                     <div class="col-md-2 year_pole_text_div">
                         <p class="blue_color year_pole_heading">{!! $steps[5]['title'] !!}</p>
                         <p class="year_pole_content">{!! $steps[5]['description'] !!}</p>
                     </div>
+                    @endisset
                 </div>
             </div>
             <div class="year_pole_img_div">
@@ -93,29 +110,39 @@ footer {
             </div>
             <div class="year_pole_2">
                 <div class="row">
-                    <div class="col-md-2 year_pole_text_div">
-                        <p class="blue_color year_pole_heading">{!! $steps[0]['title'] !!}</p>
-                        <p class="year_pole_content">{!! $steps[0]['description'] !!}</p>
-                    </div>
+                @if(isset($steps[0]['title']) && isset($steps[0]['description']))
+                        <div class="col-md-2 year_pole_text_div">
+                            <p class="blue_color year_pole_heading">{!! $steps[0]['title'] !!}</p>
+                            <p class="year_pole_content">{!! $steps[0]['description'] !!}</p>
+                        </div>
+                    @endisset
+                    @isset( $steps[1]['image'] )
                     <div class="col-md-2 year_pole_img_div">
                         <img class="year_pole_img" src="{{ asset('storage/' . $steps[1]['image']) }}">
                     </div>
-
+                    @endisset
+                    @if(isset($steps[2]['title']) && isset($steps[2]['description']))
                     <div class="col-md-2 year_pole_text_div">
                         <p class="blue_color year_pole_heading">{!! $steps[2]['title'] !!}</p>
                         <p class="year_pole_content">{!! $steps[2]['description'] !!}</p>
                     </div>
+                    @endisset
+                    @isset( $steps[3]['image'] )
                     <div class="col-md-2 year_pole_img_div">
                         <img class="year_pole_img" src="{{ asset('storage/' . $steps[3]['image']) }}">
                     </div>
-
+                    @endisset
+                    @if(isset($steps[4]['title']) && isset($steps[4]['description']))
                     <div class="col-md-2 year_pole_text_div">
                         <p class="blue_color year_pole_heading">{!! $steps[4]['title'] !!}</p>
                         <p class="year_pole_content">{!! $steps[4]['description'] !!}</p>
                     </div>
+                    @endisset
+                    @isset( $steps[5]['image'] )
                     <div class="col-md-2 year_pole_img_div">
                         <img class="year_pole_img" src="{{ asset('storage/' . $steps[5]['image']) }}">
                     </div>
+                    @endisset
                 </div>
             </div>
         </div>
@@ -124,38 +151,26 @@ footer {
 
     <section id="year_pole_carousel" class="steps_mobile">
         <div id="pole_carousel" class="owl-carousel owl-theme">
-            <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[0]['mobile_image']) }}" alt="2013">
-                <p class="blue_color year_pole_heading">{!! $steps[0]['title'] !!}</p>
-                <p class="year_pole_content">{!! $steps[0]['description'] !!}</p>
-            </div>
-            <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[1]['mobile_image']) }}">
-                <p class="blue_color year_pole_heading">{!! $steps[1]['title'] !!}</p>
-                <p class="year_pole_content">{!! $steps[1]['description'] !!}</p>
-            </div>
-            <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[2]['mobile_image']) }}" alt="2016">
-                <p class="blue_color year_pole_heading">{!! $steps[2]['title'] !!}</p>
-                <p class="year_pole_content">{!! $steps[2]['description'] !!}</p>
-            </div>
-            <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[3]['mobile_image']) }}">
-                <p class="blue_color year_pole_heading">{!! $steps[3]['title'] !!}</p>
-                <p class="year_pole_content">{!! $steps[3]['description'] !!}</p>
-            </div>
-            <div class="item col-md-2 year_pole_img_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[4]['mobile_image']) }}" alt="2021">
-                <p class="blue_color year_pole_heading">{!! $steps[4]['title'] !!}</p>
-                <p class="year_pole_content">{!! $steps[4]['description'] !!}</p>
-            </div>
-            <div class="col-md-2 year_pole_text_div">
-                <img class="year_pole_img" src="{{ asset('storage/' . $steps[5]['mobile_image']) }}">
-                <p class="blue_color year_pole_heading">{!! $steps[5]['title'] !!}</p>
-                <p class="year_pole_content">{!! $steps[5]['description'] !!}</p>
-            </div>
+            @foreach ($steps as $step)
+                <div class="item col-md-2 year_pole_img_div">
+                    @if ($step['mobile_image'] !== null)
+                        <img class="year_pole_img" src="{{ asset('storage/' . $step['mobile_image']) }}" alt="{{ $step['title'] }}">
+                    @endif
+                    <p class="blue_color year_pole_heading">
+                        @if ($step['title'] !== null)
+                            {!! $step['title'] !!}
+                        @endif
+                    </p>
+                    <p class="year_pole_content">
+                        @if ($step['description'] !== null)
+                            {!! $step['description'] !!}
+                        @endif
+                    </p>
+                </div>
+            @endforeach
         </div>
     </section>
+
     <section class="team_sections">
         <div class="career_below_font main_about_heading">
             <h4 class="pbtm0 js-split-words2">Not One Man show</h4>
@@ -187,14 +202,14 @@ footer {
         </div>
         <div class="container designers_container">
             <div class="row designers_section">
-                @isset($teams['expert'])
-                @foreach ($teams['designers'] as $designer)
-                <div class="col-md-4">
-                    <div class="team_work_div">
-                        <span class="team_work_text">{{ $designer }}</span>
+                @isset($teams['designers'])
+                    @foreach ($teams['designers'] as $designer)
+                    <div class="col-md-4">
+                        <div class="team_work_div">
+                            <span class="team_work_text">{{ $designer }}</span>
+                        </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
                 @endisset
             </div>
         </div>
@@ -229,17 +244,19 @@ footer {
             <div class="aboutports_left aboutports_right_text-2">
                 <div class="reveal">
                     <div class="image-wrap">
-                        <img src="/assets/images/Vision.jpg">
+                        <img src="{{ asset('storage/' . $missionVision['img']) }}">
                     </div>
                 </div>
                 <div class="vission_icons">
                     <img src="/assets/images/mission_icons_white.webp" />
                 </div>
             </div>
+            @isset($missionVision['mission'])
             <div class="aboutports_right aboutports_right_text-2 paddleft50">
                 {!! $missionVision['mission'] !!}
-
             </div>
+            @endisset
+
         </div>
         <div class="main_about_heading padding50">
             <h4 class="js-split-words2">Our Values </h4>
