@@ -268,15 +268,15 @@
                                     @foreach ($project as $index => $projects)
                                     <div class="work__info">
                                         <div class="work__left-bl">
-                                            <span class="work__num">{{ $index + 1 }}</span>
+                                            <!-- <span class="work__num">{{ $index + 1 }}</span> -->
                                             <h2 class="title">{{ $projects['title'] }}<span
                                                     class="stroke">PROJECTS</span></h2>
-                                            <p class="text_fotns mb-0 pb-0">
-                                                {{ \Carbon\Carbon::parse($projects['date'])->format('M d, Y') }}</p>
+                                            <!-- <p class="text_fotns mb-0 pb-0">
+                                                {{ \Carbon\Carbon::parse($projects['date'])->format('M d, Y') }}</p> -->
 
-                                            @php
+                                            <!-- @php
                                             echo html_entity_decode($projects['description']);
-                                            @endphp
+                                            @endphp -->
 
                                             <a href="{{ route('projects') }}" class="work__link">Read More</a>
                                         </div>
