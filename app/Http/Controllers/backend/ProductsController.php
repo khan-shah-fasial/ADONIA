@@ -56,6 +56,7 @@ class ProductsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
+            'image' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -67,45 +68,47 @@ class ProductsController extends Controller
 
         $title = $request->title;
         $description = $request->description;
+        $Image = $request->image;
 
-        $old_data = DB::table('pages')->where('page_name', $request->page)->value('radio_comission');
 
-        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
-            $old_data = json_decode($old_data, true);
-            $next = true;
-        }
+        // $old_data = DB::table('pages')->where('page_name', $request->page)->value('radio_comission');
 
-        // Storing new image
-        $newImage = [];
-        if($request->has('image')){
-            foreach ($request->file('image') as $index => $file) {
-                $ImagePath = $file->store('assets/project/', 'public');
-                $newImage[$index] = $ImagePath;
-            }
-        }
+        // if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+        //     $old_data = json_decode($old_data, true);
+        //     $next = true;
+        // }
 
-        $Image = [];
-        foreach ($title as $key => $name) {
-            if (isset($newImage[$key])) {
-                $Image[$key] = $newImage[$key];
-            } else {
-                $old = "old_image$key";
-                if($request->has($old)){
+        // // Storing new image
+        // $newImage = [];
+        // if($request->has('image')){
+        //     foreach ($request->file('image') as $index => $file) {
+        //         $ImagePath = $file->store('assets/project/', 'public');
+        //         $newImage[$index] = $ImagePath;
+        //     }
+        // }
 
-                    if($next == true){
-                        $Image[$key] = $old_data[$key]['image'] ?? null;
-                    } else {
-                        $privous = $key + 1;
-                        $Image[$key] = $old_data[$privous]['image'] ?? null;
-                    }
+        // $Image = [];
+        // foreach ($title as $key => $name) {
+        //     if (isset($newImage[$key])) {
+        //         $Image[$key] = $newImage[$key];
+        //     } else {
+        //         $old = "old_image$key";
+        //         if($request->has($old)){
+
+        //             if($next == true){
+        //                 $Image[$key] = $old_data[$key]['image'] ?? null;
+        //             } else {
+        //                 $privous = $key + 1;
+        //                 $Image[$key] = $old_data[$privous]['image'] ?? null;
+        //             }
                     
-                } else {
-                    $next = false;
-                    $privous = $key + 1;
-                    $Image[$key] = $old_data[$privous]['image'] ?? null;
-                }
-            }
-        }
+        //         } else {
+        //             $next = false;
+        //             $privous = $key + 1;
+        //             $Image[$key] = $old_data[$privous]['image'] ?? null;
+        //         }
+        //     }
+        // }
 
         $radio_comission = [];
 
@@ -143,6 +146,7 @@ class ProductsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
+            'image' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -154,46 +158,47 @@ class ProductsController extends Controller
 
         $title = $request->title;
         $description = $request->description;
+        $Image = $request->image;
 
-        $old_data = DB::table('pages')->where('page_name', $request->page)->value('oil_spill');
+        // $old_data = DB::table('pages')->where('page_name', $request->page)->value('oil_spill');
 
-        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
-            $old_data = json_decode($old_data, true);
-            $next = true;
-        }
+        // if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+        //     $old_data = json_decode($old_data, true);
+        //     $next = true;
+        // }
 
-        // Storing new image
-        $newImage = [];
-        if($request->has('image')){
-            foreach ($request->file('image') as $index => $file) {
-                $ImagePath = $file->store('assets/project/', 'public');
-                $newImage[$index] = $ImagePath;
-            }
-        }
+        // // Storing new image
+        // $newImage = [];
+        // if($request->has('image')){
+        //     foreach ($request->file('image') as $index => $file) {
+        //         $ImagePath = $file->store('assets/project/', 'public');
+        //         $newImage[$index] = $ImagePath;
+        //     }
+        // }
 
-        $Image = [];
-        foreach ($title as $key => $name) {
-            if (isset($newImage[$key])) {
-                $Image[$key] = $newImage[$key];
-            } else {
-                $old = "old_image$key";
-                if($request->has($old)){
+        // $Image = [];
+        // foreach ($title as $key => $name) {
+        //     if (isset($newImage[$key])) {
+        //         $Image[$key] = $newImage[$key];
+        //     } else {
+        //         $old = "old_image$key";
+        //         if($request->has($old)){
 
-                    if($next == true){
-                        $Image[$key] = $old_data[$key]['image'] ?? null;
-                    } else {
-                        $privous = $key + 1;
-                        $Image[$key] = $old_data[$privous]['image'] ?? null;
-                    }
+        //             if($next == true){
+        //                 $Image[$key] = $old_data[$key]['image'] ?? null;
+        //             } else {
+        //                 $privous = $key + 1;
+        //                 $Image[$key] = $old_data[$privous]['image'] ?? null;
+        //             }
                     
-                } else {
-                    $next = false;
-                    $privous = $key + 1;
-                    $Image[$key] = $old_data[$privous]['image'] ?? null;
-                }
+        //         } else {
+        //             $next = false;
+        //             $privous = $key + 1;
+        //             $Image[$key] = $old_data[$privous]['image'] ?? null;
+        //         }
                 
-            }
-        }
+        //     }
+        // }
 
         $oil_spill = [];
 
@@ -231,6 +236,7 @@ class ProductsController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => 'required',
             'description' => 'required',
+            'image' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -242,45 +248,46 @@ class ProductsController extends Controller
 
         $title = $request->title;
         $description = $request->description;
+        $Image = $request->image;
 
-        $old_data = DB::table('pages')->where('page_name', $request->page)->value('aids_navigation');
+        // $old_data = DB::table('pages')->where('page_name', $request->page)->value('aids_navigation');
 
-        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
-            $old_data = json_decode($old_data, true);
-            $next = true;
-        }
+        // if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+        //     $old_data = json_decode($old_data, true);
+        //     $next = true;
+        // }
 
-        // Storing new image
-        $newImage = [];
-        if($request->has('image')){
-            foreach ($request->file('image') as $index => $file) {
-                $ImagePath = $file->store('assets/project/', 'public');
-                $newImage[$index] = $ImagePath;
-            }
-        }
+        // // Storing new image
+        // $newImage = [];
+        // if($request->has('image')){
+        //     foreach ($request->file('image') as $index => $file) {
+        //         $ImagePath = $file->store('assets/project/', 'public');
+        //         $newImage[$index] = $ImagePath;
+        //     }
+        // }
 
-        $Image = [];
-        foreach ($title as $key => $name) {
-            if (isset($newImage[$key])) {
-                $Image[$key] = $newImage[$key];
-            } else {
-                $old = "old_image$key";
-                if($request->has($old)){
+        // $Image = [];
+        // foreach ($title as $key => $name) {
+        //     if (isset($newImage[$key])) {
+        //         $Image[$key] = $newImage[$key];
+        //     } else {
+        //         $old = "old_image$key";
+        //         if($request->has($old)){
 
-                    if($next == true){
-                        $Image[$key] = $old_data[$key]['image'] ?? null;
-                    } else {
-                        $privous = $key + 1;
-                        $Image[$key] = $old_data[$privous]['image'] ?? null;
-                    }
+        //             if($next == true){
+        //                 $Image[$key] = $old_data[$key]['image'] ?? null;
+        //             } else {
+        //                 $privous = $key + 1;
+        //                 $Image[$key] = $old_data[$privous]['image'] ?? null;
+        //             }
                     
-                } else {
-                    $next = false;
-                    $privous = $key + 1;
-                    $Image[$key] = $old_data[$privous]['image'] ?? null;
-                }
-            }
-        }
+        //         } else {
+        //             $next = false;
+        //             $privous = $key + 1;
+        //             $Image[$key] = $old_data[$privous]['image'] ?? null;
+        //         }
+        //     }
+        // }
 
         $aids_navigation = [];
 

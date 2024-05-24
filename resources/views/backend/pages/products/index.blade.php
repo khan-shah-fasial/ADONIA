@@ -93,22 +93,29 @@
                                                     <div class="col-md-11">
 
                                                         <div class="row">
+                                                            {{--
+                                                            // <div class="form-group mb-3 mx-2 col-md-3">
+                                                            //     <label>Insert Image:</label>
+                                                            //     <input type="file" class="form-control"
+                                                            //         placeholder="Insert Image" name="image[]" value=""
+                                                            //         @if(empty($row->image)) required @endif>
+                                                            // </div>
+
+                                                            // @if (!empty($row->image))
+                                                            //     <div class="form-group mb-3 mx-2 col-md-2">
+                                                            //             <div style="width: 100px;">
+                                                            //                 <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
+                                                            //             </div> 
+                                                            //             <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                            //     </div>
+                                                            // @endif --}}
 
                                                             <div class="form-group mb-3 mx-2 col-md-3">
                                                                 <label>Insert Image:</label>
-                                                                <input type="file" class="form-control"
-                                                                    placeholder="Insert Image" name="image[]" value=""
-                                                                    @if(empty($row->image)) required @endif>
+                                                                <textarea class="form-control" name="image[]" rows="5" required>
+                                                                    {{ $row->image }}
+                                                                </textarea>
                                                             </div>
-
-                                                            @if (!empty($row->image))
-                                                                <div class="form-group mb-3 mx-2 col-md-2">
-                                                                        <div style="width: 100px;">
-                                                                            <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
-                                                                        </div> 
-                                                                        <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
-                                                                </div>
-                                                            @endif
 
                                                             <div class="form-group mb-3 mx-2 col-md-5">
                                                                 <label>Insert Title:</label>
@@ -137,11 +144,18 @@
                                             <div class="col-md-11">
                                                 <div class="row">
 
+                                                        {{--
+                                                        // <div class="form-group mb-3 mx-2 col-md-3">
+                                                        //     <label>Insert Image:</label>
+                                                        //     <input type="file" class="form-control"
+                                                        //         placeholder="Insert Image" name="image[]" value=""
+                                                        //         required>
+                                                        // </div>--}}
+
                                                         <div class="form-group mb-3 mx-2 col-md-3">
                                                             <label>Insert Image:</label>
-                                                            <input type="file" class="form-control"
-                                                                placeholder="Insert Image" name="image[]" value=""
-                                                                required>
+                                                            <textarea class="form-control" name="image[]" rows="5" required>
+                                                            </textarea>
                                                         </div>
                                                         <div class="form-group mb-3 mx-2 col-md-5">
                                                             <label>Insert Title:</label>
@@ -213,21 +227,29 @@
 
                                                         <div class="row">
 
+                                                            {{--
+                                                            // <div class="form-group mb-3 mx-2 col-md-3">
+                                                            //     <label>Insert Image:</label>
+                                                            //     <input type="file" class="form-control"
+                                                            //         placeholder="Insert Image" name="image[]" value=""
+                                                            //         @if(empty($row->image)) required @endif>
+                                                            // </div>
+
+                                                            // @if (!empty($row->image))
+                                                            //     <div class="form-group mb-3 mx-2 col-md-2">
+                                                            //             <div style="width: 100px;">
+                                                            //                 <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
+                                                            //             </div> 
+                                                            //             <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                            //     </div>
+                                                            // @endif --}}
+
                                                             <div class="form-group mb-3 mx-2 col-md-3">
                                                                 <label>Insert Image:</label>
-                                                                <input type="file" class="form-control"
-                                                                    placeholder="Insert Image" name="image[]" value=""
-                                                                    @if(empty($row->image)) required @endif>
+                                                                <textarea class="form-control" name="image[]" rows="5" required>
+                                                                    {{ $row->image }}
+                                                                </textarea>
                                                             </div>
-
-                                                            @if (!empty($row->image))
-                                                                <div class="form-group mb-3 mx-2 col-md-2">
-                                                                        <div style="width: 100px;">
-                                                                            <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
-                                                                        </div> 
-                                                                        <input type="hidden" name="old_image{{ $o++ }}" value="{{ $row->image }}">   
-                                                                </div>
-                                                            @endif
 
                                                             <div class="form-group mb-3 mx-2 col-md-5">
                                                                 <label>Insert Title:</label>
@@ -256,11 +278,18 @@
                                             <div class="col-md-11">
                                                 <div class="row">
 
+                                                    {{--
+                                                    // <div class="form-group mb-3 mx-2 col-md-3">
+                                                    //     <label>Insert Image:</label>
+                                                    //     <input type="file" class="form-control"
+                                                    //         placeholder="Insert Image" name="image[]" value=""
+                                                    //         required>
+                                                    // </div>--}}
+
                                                         <div class="form-group mb-3 mx-2 col-md-3">
                                                             <label>Insert Image:</label>
-                                                            <input type="file" class="form-control"
-                                                                placeholder="Insert Image" name="image[]" value=""
-                                                                required>
+                                                            <textarea class="form-control" name="image[]" rows="5" required>
+                                                            </textarea>
                                                         </div>
                                                         <div class="form-group mb-3 mx-2 col-md-5">
                                                             <label>Insert Title:</label>
@@ -332,21 +361,29 @@
 
                                                     <div class="row">
 
+                                                        {{--
+                                                            // <div class="form-group mb-3 mx-2 col-md-3">
+                                                            //     <label>Insert Image:</label>
+                                                            //     <input type="file" class="form-control"
+                                                            //         placeholder="Insert Image" name="image[]" value=""
+                                                            //         @if(empty($row->image)) required @endif>
+                                                            // </div>
+
+                                                            // @if (!empty($row->image))
+                                                            //     <div class="form-group mb-3 mx-2 col-md-2">
+                                                            //             <div style="width: 100px;">
+                                                            //                 <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
+                                                            //             </div> 
+                                                            //             <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                            //     </div>
+                                                            // @endif --}}
+
                                                         <div class="form-group mb-3 mx-2 col-md-3">
                                                             <label>Insert Image:</label>
-                                                            <input type="file" class="form-control"
-                                                                placeholder="Insert Image" name="image[]" value=""
-                                                                @if(empty($row->image)) required @endif>
+                                                            <textarea class="form-control" name="image[]" rows="5" required>
+                                                                {{ $row->image }}
+                                                            </textarea>
                                                         </div>
-
-                                                        @if (!empty($row->image))
-                                                            <div class="form-group mb-3 mx-2 col-md-2">
-                                                                    <div style="width: 100px;">
-                                                                        <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
-                                                                    </div> 
-                                                                    <input type="hidden" name="old_image{{ $o++ }}" value="{{ $row->image }}">   
-                                                            </div>
-                                                        @endif
 
                                                         <div class="form-group mb-3 mx-2 col-md-5">
                                                             <label>Insert Title:</label>
@@ -374,13 +411,20 @@
                                         <div class="row">
                                         <div class="col-md-11">
                                             <div class="row">
+                                                    {{--
+                                                    // <div class="form-group mb-3 mx-2 col-md-3">
+                                                    //     <label>Insert Image:</label>
+                                                    //     <input type="file" class="form-control"
+                                                    //         placeholder="Insert Image" name="image[]" value=""
+                                                    //         required>
+                                                    // </div>--}}
 
                                                     <div class="form-group mb-3 mx-2 col-md-3">
                                                         <label>Insert Image:</label>
-                                                        <input type="file" class="form-control"
-                                                            placeholder="Insert Image" name="image[]" value=""
-                                                            required>
+                                                        <textarea class="form-control" name="image[]" rows="5" required>
+                                                        </textarea>
                                                     </div>
+
                                                     <div class="form-group mb-3 mx-2 col-md-5">
                                                         <label>Insert Title:</label>
                                                         <input type="text" class="form-control"
@@ -473,13 +517,9 @@ $("#add_replace_key").on("click", function() {
                             <div class="row">
 
                                 <div class="col col-sm-6">
-                                    <div class="form-group mb-3">
-                                        <label>Image <span class="red">*</span> <span
-                                                class="font-size11">(Max file size 80kb -
-                                                1125*196)</span></label>
-                                        <input class="form-control" required type="file" id="image"
-                                            name="image[]">
-                                    </div>
+                                    <label>Insert Image:</label>
+                                    <textarea class="form-control" name="image[]" rows="5" required>
+                                    </textarea>
                                 </div>
                                 <div class="col col-sm-6">
                                     <div class="form-group mb-3">
@@ -520,13 +560,9 @@ $("#add_replace_key2").on("click", function() {
                             <div class="row">
 
                                 <div class="col col-sm-6">
-                                    <div class="form-group mb-3">
-                                        <label>Image <span class="red">*</span> <span
-                                                class="font-size11">(Max file size 80kb -
-                                                1125*196)</span></label>
-                                        <input class="form-control" required type="file" id="image"
-                                            name="image[]">
-                                    </div>
+                                    <label>Insert Image:</label>
+                                    <textarea class="form-control" name="image[]" rows="5" required>
+                                    </textarea>
                                 </div>
                                 <div class="col col-sm-6">
                                     <div class="form-group mb-3">
@@ -567,13 +603,9 @@ $("#add_replace_key3").on("click", function() {
                             <div class="row">
 
                                 <div class="col col-sm-6">
-                                    <div class="form-group mb-3">
-                                        <label>Image <span class="red">*</span> <span
-                                                class="font-size11">(Max file size 80kb -
-                                                1125*196)</span></label>
-                                        <input class="form-control" required type="file" id="image"
-                                            name="image[]">
-                                    </div>
+                                    <label>Insert Image:</label>
+                                    <textarea class="form-control" name="image[]" rows="5" required>
+                                    </textarea>
                                 </div>
                                 <div class="col col-sm-6">
                                     <div class="form-group mb-3">
