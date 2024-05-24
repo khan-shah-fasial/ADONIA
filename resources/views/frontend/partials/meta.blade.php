@@ -24,7 +24,7 @@ $url = url()->current();
 
 <!----------------- og tag ------------------->
 
-<meta property="og:image" content="{{ asset('assets/frontend/images/logo.png') }}">
+<meta property="og:image" content="{{ asset('assets/frontend/images/Logo1.png') }}">
 <meta property="og:image:width" content="500">
 <meta property="og:image:height" content="500">
 <meta property="og:image:type" content="image/png" />
@@ -36,9 +36,9 @@ $url = url()->current();
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Adonia offshore">
 <meta name="twitter:description" content="Adonia offshore">
-<meta name="twitter:image" content="{{ asset('assets/frontend/images/logo.png') }}">
+<meta name="twitter:image" content="{{ asset('assets/frontend/images/Logo1.png') }}">
 <meta name="twitter:site" content="" />
-<link rel="shortcut icon" href="{{ asset('/assets/frontend/images/favicon.png') }}">
+<link rel="shortcut icon" href="{{ asset('/assets/frontend/images/Logo1.png') }}">
 
 <!----------------- twitter ------------------->
 

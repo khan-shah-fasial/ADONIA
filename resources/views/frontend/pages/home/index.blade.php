@@ -156,7 +156,7 @@
                                         </div>
                                     </div>
                                     @endisset
-                                    @isset($businessData[0])
+                                    @isset($businessData[5])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -167,7 +167,7 @@
                                         </div>
                                     </div>
                                     @endisset
-                                    @isset($businessData[0])
+                                    @isset($businessData[6])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -178,7 +178,7 @@
                                         </div>
                                     </div>
                                     @endisset
-                                    @isset($businessData[0])
+                                    @isset($businessData[7])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -189,7 +189,7 @@
                                         </div>
                                     </div>
                                     @endisset
-                                    @isset($businessData[0])
+                                    @isset($businessData[8])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">
@@ -200,7 +200,7 @@
                                         </div>
                                     </div>
                                     @endisset
-                                    @isset($businessData[0])
+                                    @isset($businessData[9])
                                     <div class="col-md-3 col-6">
                                         <div class="buisness_box">
                                             <div class="buis_img hvr-bounce-in1">

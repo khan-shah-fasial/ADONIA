@@ -37,7 +37,7 @@
                     <!-- Leftbar User -->
                     <div class="leftbar-user">
                         <a href="#">
-                            <img src="/assets/images/avatar-1.jpg" alt="user-image" height="42" class="rounded-circle shadow-sm">
+                            <img src="/assets/images/Logo1.png" alt="user-image" height="42" class="rounded-circle shadow-sm">
                             <span class="leftbar-user-name mt-2">{{ auth()->user()->name }}</span>
                         </a>
                     </div>
@@ -47,12 +47,12 @@
 
                         <li class="side-nav-title">Navigation</li>
 
-                        <li class="side-nav-item"> <!--menuitem-active-->
+                        {{-- <li class="side-nav-item"> <!--menuitem-active-->
                             <a href="{{ route('backend.dashboard') }}" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                                 <i class="uil-home-alt"></i>
                                 <span> Dashboards </span>
                             </a>
-                        </li>
+                        </li> --}}
 
 
 
