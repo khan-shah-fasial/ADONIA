@@ -53,22 +53,22 @@
                 <div class="menu_list scoail_media">
                     <ul>
                         <li>
-                            <a href="{{ $contacts['fb_url']}}">
+                            <a href="{{ $contacts['fb_url'] ?? ''}}">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ $contacts['twitter_url']}}">
+                            <a href="{{ $contacts['twitter_url'] ?? ''}}">
                                 <i class="fa-brands fa-twitter"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ $contacts['inst_url']}}">
+                            <a href="{{ $contacts['inst_url'] ?? ''}}">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ $contacts['linkedin_url']}}">
+                            <a href="{{ $contacts['linkedin_url'] ?? ''}}">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </a>
                         </li>
@@ -82,14 +82,14 @@
                     </a>                        
                     </h4> |
                     <h4>
-                        <a href="tel:+{{ $contacts['phone_2'] }}">
-                            </i>+{{ $contacts['phone_2'] }} </a>
+                        <a href="tel:+{{ $contacts['phone_2'] ?? '' }}">
+                            </i>+{{ $contacts['phone_2'] ?? '' }} </a>
                     </h4>
                 </div>
                 <div class="footerright">
                     <h4>
-                        <a href="mailto:{{ $contacts['email'] }}">
-                            <i class="fa-regular fa-envelope"></i> {{ $contacts['email'] }} </a>
+                        <a href="mailto:{{ $contacts['email'] ?? '' }}">
+                            <i class="fa-regular fa-envelope"></i> {{ $contacts['email'] ?? '' }} </a>
                     </h4>
                 </div>
             </div>
