@@ -54,6 +54,7 @@ class CareerController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title' => 'required',
+            'title2' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -70,10 +71,12 @@ class CareerController extends Controller
             $ImagePath = $request->old_img;
         }
         $title =  $request->title;
+        $title2 =  $request->title2;
 
         $intro = [
             'image' => $ImagePath,
-            'title' => $title
+            'title' => $title,
+            'title2' => $title2
         ];
 
         $result = DB::table('pages')->where('page_name', $request->page)->update([

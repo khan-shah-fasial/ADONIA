@@ -14,6 +14,8 @@ use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\BusinessController;
 use App\Http\Controllers\backend\ProductsController;
 
+use App\Http\Controllers\backend\TrumbowygController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +35,10 @@ Route::get('/logout', [AuthenticateController::class, 'logout'])->name('backend.
 
 //dashborad
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('backend.dashboard');
+
+Route::group(['prefix' => 'trumbowyg'], function () {
+    Route::post('/upload', [TrumbowygController::class, 'upload'])->name('trumbowyg.upload');
+});
 
 //---------------------- pages -------------------------------------
 
@@ -80,9 +86,9 @@ Route::post('/update-business-banner', [BusinessController::class, 'business_ban
 Route::post('/update-business-list', [BusinessController::class, 'business_steps'])->name('business.businesslist');
 
 Route::post('/update-products-banner', [ProductsController::class, 'products_banner'])->name('products.banner');
-Route::post('/update-products-radio-n-comm', [ProductsController::class, 'products_intro'])->name('products.radio-n-comm');
-Route::post('/update-products-oil-n-spill', [ProductsController::class, 'products_intro'])->name('products.oil-n-spill');
-Route::post('/update-products-aids-to-nav', [ProductsController::class, 'products_intro'])->name('products.aids-to-nav');
+Route::post('/update-products-radio-n-comm', [ProductsController::class, 'products_radio'])->name('products.radio-n-comm');
+Route::post('/update-products-oil-n-spill', [ProductsController::class, 'products_oil'])->name('products.oil-n-spill');
+Route::post('/update-products-aids-to-nav', [ProductsController::class, 'products_aids'])->name('products.aids-to-nav');
 
 
 

@@ -7,6 +7,10 @@
     <div class="card widget-inline">
         <div class="card-body p-0">
 
+            @php
+                $details = DB::table('pages')->where('page_name', 'products')->first();
+            @endphp
+
             <!-----==================== Products banner ==========----------------------->
 
             <div class="card m-3">
@@ -20,17 +24,31 @@
                         enctype="multipart/form-data">
                         @csrf
 
+
+                        @php
+                            $banner = $details->banners;
+                        @endphp
+
+                        <input type="hidden" name="page" value="products">
+
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-9">
                                 <div class="form-group mb-3">
-                                    <label>Banner 1 <span class="red">*</span> <span class="font-size11">(Max file
+                                    <label>Banner <span class="red">*</span> <span class="font-size11">(Max file
                                             size 80kb - 1125*196)</span></label>
-                                    <input class="form-control" type="file" id="image" name="Banner[]">
+                                    <input class="form-control" type="file" id="image" name="Banner" required>
                                 </div>
+                            </div>
+                            <div class="col-sm-3">
+                                @if (!empty($banner))
+                                    <div style="width: 150px;">
+                                        <img src="{{ asset('storage/' . $banner) }}" class="img-thumbnail">
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
-                        <div class="col-sm-1" style="float: right;">
+                        <div class="col-sm-1 mt-2" style="float: right;">
                             <div class="form-group d-grid mb-3 text-end">
                                 <button type="submit" class="btn btn-block btn-primary">Save</button>
                             </div>
@@ -56,58 +74,97 @@
                         enctype="multipart/form-data">
                         @csrf
 
-                        <div class="col-sm-12">
+                        @php
+                            $radio = json_decode($details->radio_comission);
+                            $j = 0;
+                        @endphp
 
-                            <div class="form-group mb-3">
-                                <div id="replace_key_add_more" style="">
-                                    <div class="form-group">
-                                        <div class="row">
+                        <input type="hidden" name="page" value="products">
+                        
+
+                            <div class="col-sm-12">
+
+                                <div class="form-group mb-3">
+                                    <div id="replace_key_add_more" style=""> @php $d = 1;
+                                    if(!empty($radio)) { foreach ($radio as $row) { @endphp
+                                        <div class="replace_key">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+
+                                                        <div class="row">
+
+                                                            <div class="form-group mb-3 mx-2 col-md-3">
+                                                                <label>Insert Image:</label>
+                                                                <input type="file" class="form-control"
+                                                                    placeholder="Insert Image" name="image[]" value=""
+                                                                    @if(empty($row->image)) required @endif>
+                                                            </div>
+
+                                                            @if (!empty($row->image))
+                                                                <div class="form-group mb-3 mx-2 col-md-2">
+                                                                        <div style="width: 100px;">
+                                                                            <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
+                                                                        </div> 
+                                                                        <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
+                                                                </div>
+                                                            @endif
+
+                                                            <div class="form-group mb-3 mx-2 col-md-5">
+                                                                <label>Insert Title:</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Insert Title" name="title[]" value="{{ $row->title }}"
+                                                                    required>
+                                                            </div>
+
+                                                            <div class="form-group mb-3 mx-2 col-md-12">
+                                                                <label>Insert Description:</label>
+                                                                <textarea class="trumbowyg form-control" placeholder="Insert Description" name="description[]" rows="5" required>
+                                                                    {{ $row->description }}
+                                                                </textarea>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-1"> @if($d == 1) <i style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;" class="ri-add-circle-fill" id="add_replace_key"></i> @else <i style="font-size: 25px; color: red; cursor: pointer; margin-left: 10px;" class="ri-delete-bin-2-fill" onclick="remove_replace_key($(this));"></i> @endif </div>
+                                                </div>
+                                            </div>
+                                            </br>
+                                        </div> @php $d++; } @endphp @php } else { @endphp
+                                            <div class="form-group">
+                                            <div class="row">
                                             <div class="col-md-11">
                                                 <div class="row">
 
-                                                    <div class="col col-sm-6">
-                                                        <div class="form-group mb-3">
-                                                            <label>Image <span class="red">*</span> <span
-                                                                    class="font-size11">(Max file size 80kb -
-                                                                    1125*196)</span></label>
-                                                            <input class="form-control" required type="file" id="image"
-                                                                name="image[]">
+                                                        <div class="form-group mb-3 mx-2 col-md-3">
+                                                            <label>Insert Image:</label>
+                                                            <input type="file" class="form-control"
+                                                                placeholder="Insert Image" name="image[]" value=""
+                                                                required>
                                                         </div>
-                                                    </div>
-                                                    <div class="col col-sm-6">
-                                                        <div class="form-group mb-3">
-                                                            <label>Title <span class="red">*</span></label>
-                                                            <input required class="form-control" name="title[]"
-                                                                placeholder="Enter  here...">
+                                                        <div class="form-group mb-3 mx-2 col-md-5">
+                                                            <label>Insert Title:</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Insert Title" name="title[]" value=""
+                                                                required>
                                                         </div>
-                                                    </div>
-                                                    <div class="col col-sm-12">
-                                                        <div class="form-group mb-3">
-                                                            <label>Description <span class="red">*</span></label>
-                                                            <textarea class="trumbowyg form-control"
-                                                                name="description[]" rows="5" required></textarea>
+                                                        
+                                                        <div class="form-group mb-3 mx-2 col-md-12">
+                                                            <label>Insert Description:</label>
+                                                            <textarea class="trumbowyg form-control" placeholder="Insert Description" name="description[]" rows="5" required></textarea>
                                                         </div>
-                                                    </div>
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-1"><i
-                                                    style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;"
-                                                    class="ri-add-circle-fill" id="add_replace_key"></i></div>
-                                        </div>
-                                        </br>
-                                    </div>
+                                            <div class="col-md-1"><i style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;" class="ri-add-circle-fill" id="add_replace_key"></i></div>
+                                            </div>
+                                            </br>
+                                        </div> @php } @endphp </div>
                                 </div>
+
+
                             </div>
-
-                            <div class="form-group mb-3">
-                                <div class="col-sm-12">
-                                    <div class="form-group mb-3">
-
-                                    </div>
-                                </div>
-                            </div>
-
 
                             <div class="col-sm-1 mt-2" style="float: right;">
                                 <div class="form-group d-grid mb-3 text-end">
@@ -136,58 +193,97 @@
                         enctype="multipart/form-data">
                         @csrf
 
-                        <div class="col-sm-12">
+                        @php
+                            $oil = json_decode($details->oil_spill);
+                            $o = 0;
+                        @endphp
 
-                            <div class="form-group mb-3">
-                                <div id="replace_key_add_more2" style="">
-                                    <div class="form-group">
-                                        <div class="row">
+                        <input type="hidden" name="page" value="products">
+                        
+
+                            <div class="col-sm-12">
+
+                                <div class="form-group mb-3">
+                                    <div id="replace_key_add_more2" style=""> @php $e = 1;
+                                    if(!empty($oil)) { foreach ($oil as $row) { @endphp
+                                        <div class="replace_key">
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-md-11">
+
+                                                        <div class="row">
+
+                                                            <div class="form-group mb-3 mx-2 col-md-3">
+                                                                <label>Insert Image:</label>
+                                                                <input type="file" class="form-control"
+                                                                    placeholder="Insert Image" name="image[]" value=""
+                                                                    @if(empty($row->image)) required @endif>
+                                                            </div>
+
+                                                            @if (!empty($row->image))
+                                                                <div class="form-group mb-3 mx-2 col-md-2">
+                                                                        <div style="width: 100px;">
+                                                                            <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
+                                                                        </div> 
+                                                                        <input type="hidden" name="old_image{{ $o++ }}" value="{{ $row->image }}">   
+                                                                </div>
+                                                            @endif
+
+                                                            <div class="form-group mb-3 mx-2 col-md-5">
+                                                                <label>Insert Title:</label>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Insert Title" name="title[]" value="{{ $row->title }}"
+                                                                    required>
+                                                            </div>
+
+                                                            <div class="form-group mb-3 mx-2 col-md-12">
+                                                                <label>Insert Description:</label>
+                                                                <textarea class="trumbowyg form-control" placeholder="Insert Description" name="description[]" rows="5" required>
+                                                                    {{ $row->description }}
+                                                                </textarea>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-1"> @if($e == 1) <i style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;" class="ri-add-circle-fill" id="add_replace_key2"></i> @else <i style="font-size: 25px; color: red; cursor: pointer; margin-left: 10px;" class="ri-delete-bin-2-fill" onclick="remove_replace_key($(this));"></i> @endif </div>
+                                                </div>
+                                            </div>
+                                            </br>
+                                        </div> @php $e++; } @endphp @php } else { @endphp
+                                            <div class="form-group">
+                                            <div class="row">
                                             <div class="col-md-11">
                                                 <div class="row">
 
-                                                    <div class="col col-sm-6">
-                                                        <div class="form-group mb-3">
-                                                            <label>Image <span class="red">*</span> <span
-                                                                    class="font-size11">(Max file size 80kb -
-                                                                    1125*196)</span></label>
-                                                            <input class="form-control" required type="file" id="image"
-                                                                name="image[]">
+                                                        <div class="form-group mb-3 mx-2 col-md-3">
+                                                            <label>Insert Image:</label>
+                                                            <input type="file" class="form-control"
+                                                                placeholder="Insert Image" name="image[]" value=""
+                                                                required>
                                                         </div>
-                                                    </div>
-                                                    <div class="col col-sm-6">
-                                                        <div class="form-group mb-3">
-                                                            <label>Title <span class="red">*</span></label>
-                                                            <input required class="form-control" name="title[]"
-                                                                placeholder="Enter  here...">
+                                                        <div class="form-group mb-3 mx-2 col-md-5">
+                                                            <label>Insert Title:</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Insert Title" name="title[]" value=""
+                                                                required>
                                                         </div>
-                                                    </div>
-                                                    <div class="col col-sm-12">
-                                                        <div class="form-group mb-3">
-                                                            <label>Description <span class="red">*</span></label>
-                                                            <textarea class="trumbowyg form-control"
-                                                                name="description[]" rows="5" required></textarea>
+                                                        
+                                                        <div class="form-group mb-3 mx-2 col-md-12">
+                                                            <label>Insert Description:</label>
+                                                            <textarea class="trumbowyg form-control" placeholder="Insert Description" name="description[]" rows="5" required></textarea>
                                                         </div>
-                                                    </div>
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-1"><i
-                                                    style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;"
-                                                    class="ri-add-circle-fill" id="add_replace_key2"></i></div>
-                                        </div>
-                                        </br>
-                                    </div>
+                                            <div class="col-md-1"><i style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;" class="ri-add-circle-fill" id="add_replace_key2"></i></div>
+                                            </div>
+                                            </br>
+                                        </div> @php } @endphp </div>
                                 </div>
+
+
                             </div>
-
-                            <div class="form-group mb-3">
-                                <div class="col-sm-12">
-                                    <div class="form-group mb-3">
-
-                                    </div>
-                                </div>
-                            </div>
-
 
                             <div class="col-sm-1 mt-2" style="float: right;">
                                 <div class="form-group d-grid mb-3 text-end">
@@ -215,6 +311,8 @@
                     <form id="products_aidstonav_form" action="{{ url(route('products.aids-to-nav')) }}" method="post"
                         enctype="multipart/form-data">
                         @csrf
+
+                        <input type="hidden" name="page" value="products">
 
                         <div class="col-sm-12">
 
@@ -293,34 +391,24 @@
 <script>
 $(document).ready(function() {
     initValidate('#products_aidstonav_form');
-    initValidate('#products_oilnspill_form');
+    initValidate('#products_oilnfill_form');
     initValidate('#products_radioncomm_form');
     initValidate('#products_banner_form');
 
     initTrumbowyg('.trumbowyg');
 });
 
-$("#products_project_form").submit(function(e) {
+$("#products_radioncomm_form").submit(function(e) {
     var form = $(this);
     ajaxSubmit(e, form, responseHandler);
 });
 
-$("#products_counter_form").submit(function(e) {
+$("#products_oilnfill_form").submit(function(e) {
     var form = $(this);
     ajaxSubmit(e, form, responseHandler);
 });
 
-$("#products_business_form").submit(function(e) {
-    var form = $(this);
-    ajaxSubmit(e, form, responseHandler);
-});
-
-$("#products_marque_form").submit(function(e) {
-    var form = $(this);
-    ajaxSubmit(e, form, responseHandler);
-});
-
-$("#products_intro_form").submit(function(e) {
+$("#products_aidstonav_form").submit(function(e) {
     var form = $(this);
     ajaxSubmit(e, form, responseHandler);
 });

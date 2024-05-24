@@ -80,9 +80,11 @@
                             if(!empty($intro)){
                                 $img = $intro->image;
                                 $title = $intro->title;
+                                $title2 = $intro->title2 ?? '';
                             } else {
                                 $img = '';
                                 $title = '';
+                                $title2 = '';
                             }
 
                         @endphp
@@ -112,6 +114,14 @@
                                     <label>Insert Heading<span class="red">*</span></label>
                                     <input type="text" class="form-control" placeholder="Insert Heading" name="title"
                                         value="{{ $title }}" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-5">
+                                <div class="form-group mb-3">
+                                    <label>Insert Heading 2<span class="red">*</span></label>
+                                    <input type="text" class="form-control" placeholder="Insert Heading" name="title2"
+                                        value="{{ $title2 }}" required>
                                 </div>
                             </div>
                         </div>
