@@ -68,6 +68,13 @@ class ProductsController extends Controller
         $title = $request->title;
         $description = $request->description;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('radio_comission');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+        }
+
         // Storing new image
         $newImage = [];
         if($request->has('image')){
@@ -83,7 +90,20 @@ class ProductsController extends Controller
                 $Image[$key] = $newImage[$key];
             } else {
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
             }
         }
 
@@ -135,6 +155,13 @@ class ProductsController extends Controller
         $title = $request->title;
         $description = $request->description;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('oil_spill');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+        }
+
         // Storing new image
         $newImage = [];
         if($request->has('image')){
@@ -150,7 +177,21 @@ class ProductsController extends Controller
                 $Image[$key] = $newImage[$key];
             } else {
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
+                
             }
         }
 
@@ -164,9 +205,6 @@ class ProductsController extends Controller
                 'description' => $description[$i] 
             ];
         }
-
-        var_dump($oil_spill);
-        exit();
 
         $result = DB::table('pages')->where('page_name', $request->page)->update([
             'oil_spill' => json_encode($oil_spill),
@@ -205,6 +243,13 @@ class ProductsController extends Controller
         $title = $request->title;
         $description = $request->description;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('aids_navigation');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+        }
+
         // Storing new image
         $newImage = [];
         if($request->has('image')){
@@ -220,7 +265,20 @@ class ProductsController extends Controller
                 $Image[$key] = $newImage[$key];
             } else {
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
             }
         }
 

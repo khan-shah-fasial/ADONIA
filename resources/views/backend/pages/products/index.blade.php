@@ -312,73 +312,109 @@
                         enctype="multipart/form-data">
                         @csrf
 
+                        @php
+                            $aids = json_decode($details->aids_navigation);
+                            $o = 0;
+                        @endphp
+
                         <input type="hidden" name="page" value="products">
+                        
 
                         <div class="col-sm-12">
 
                             <div class="form-group mb-3">
-                                <div id="replace_key_add_more3" style="">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <div class="row">
+                                <div id="replace_key_add_more3" style=""> @php $d = 1;
+                                if(!empty($aids)) { foreach ($aids as $row) { @endphp
+                                    <div class="replace_key">
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-11">
 
-                                                    <div class="col col-sm-6">
-                                                        <div class="form-group mb-3">
-                                                            <label>Image <span class="red">*</span> <span
-                                                                    class="font-size11">(Max file size 80kb -
-                                                                    1125*196)</span></label>
-                                                            <input class="form-control" required type="file" id="image"
-                                                                name="image[]">
+                                                    <div class="row">
+
+                                                        <div class="form-group mb-3 mx-2 col-md-3">
+                                                            <label>Insert Image:</label>
+                                                            <input type="file" class="form-control"
+                                                                placeholder="Insert Image" name="image[]" value=""
+                                                                @if(empty($row->image)) required @endif>
                                                         </div>
-                                                    </div>
-                                                    <div class="col col-sm-6">
-                                                        <div class="form-group mb-3">
-                                                            <label>Title <span class="red">*</span></label>
-                                                            <input required class="form-control" name="title[]"
-                                                                placeholder="Enter  here...">
+
+                                                        @if (!empty($row->image))
+                                                            <div class="form-group mb-3 mx-2 col-md-2">
+                                                                    <div style="width: 100px;">
+                                                                        <img src="{{ asset('storage/' . $row->image) }}" class="img-thumbnail">
+                                                                    </div> 
+                                                                    <input type="hidden" name="old_image{{ $o++ }}" value="{{ $row->image }}">   
+                                                            </div>
+                                                        @endif
+
+                                                        <div class="form-group mb-3 mx-2 col-md-5">
+                                                            <label>Insert Title:</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Insert Title" name="title[]" value="{{ $row->title }}"
+                                                                required>
                                                         </div>
-                                                    </div>
-                                                    <div class="col col-sm-12">
-                                                        <div class="form-group mb-3">
-                                                            <label>Description <span class="red">*</span></label>
-                                                            <textarea class="trumbowyg form-control"
-                                                                name="description[]" rows="5" required></textarea>
+
+                                                        <div class="form-group mb-3 mx-2 col-md-12">
+                                                            <label>Insert Description:</label>
+                                                            <textarea class="trumbowyg form-control" placeholder="Insert Description" name="description[]" rows="5" required>
+                                                                {{ $row->description }}
+                                                            </textarea>
                                                         </div>
+
                                                     </div>
 
                                                 </div>
+                                                <div class="col-md-1"> @if($d == 1) <i style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;" class="ri-add-circle-fill" id="add_replace_key3"></i> @else <i style="font-size: 25px; color: red; cursor: pointer; margin-left: 10px;" class="ri-delete-bin-2-fill" onclick="remove_replace_key($(this));"></i> @endif </div>
                                             </div>
-                                            <div class="col-md-1"><i
-                                                    style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;"
-                                                    class="ri-add-circle-fill" id="add_replace_key3"></i></div>
                                         </div>
                                         </br>
-                                    </div>
-                                </div>
+                                    </div> @php $d++; } @endphp @php } else { @endphp
+                                        <div class="form-group">
+                                        <div class="row">
+                                        <div class="col-md-11">
+                                            <div class="row">
+
+                                                    <div class="form-group mb-3 mx-2 col-md-3">
+                                                        <label>Insert Image:</label>
+                                                        <input type="file" class="form-control"
+                                                            placeholder="Insert Image" name="image[]" value=""
+                                                            required>
+                                                    </div>
+                                                    <div class="form-group mb-3 mx-2 col-md-5">
+                                                        <label>Insert Title:</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="Insert Title" name="title[]" value=""
+                                                            required>
+                                                    </div>
+                                                    
+                                                    <div class="form-group mb-3 mx-2 col-md-12">
+                                                        <label>Insert Description:</label>
+                                                        <textarea class="trumbowyg form-control" placeholder="Insert Description" name="description[]" rows="5" required></textarea>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1"><i style="font-size: 25px; color: #0b0; cursor: pointer; margin-left: 10px;" class="ri-add-circle-fill" id="add_replace_key3"></i></div>
+                                        </div>
+                                        </br>
+                                    </div> @php } @endphp </div>
                             </div>
 
-                            <div class="form-group mb-3">
-                                <div class="col-sm-12">
-                                    <div class="form-group mb-3">
 
-                                    </div>
-                                </div>
+                        </div>
+
+                        <div class="col-sm-1 mt-2" style="float: right;">
+                            <div class="form-group d-grid mb-3 text-end">
+                                <button type="submit" class="btn btn-block btn-primary">Save</button>
                             </div>
-
-
-                            <div class="col-sm-1 mt-2" style="float: right;">
-                                <div class="form-group d-grid mb-3 text-end">
-                                    <button type="submit" class="btn btn-block btn-primary">Save</button>
-                                </div>
-                            </div>
-
+                        </div>
                     </form>
 
                 </div>
             </div>
 
-            <!-----==================== Products Radio & Communication section Ends ==========----------------------->
+            <!-----==================== Products Aids To Navigation  section Ends ==========----------------------->
 
 
         </div>
