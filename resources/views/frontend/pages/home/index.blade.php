@@ -299,7 +299,9 @@
                             <!-- <span class="stroke">PROJECTS</span> -->
                         </h2>
                         <!--<p class="text_fotns mb-0 pb-0">{{ date('M.d, Y', strtotime($projects['date'])) }}</p>-->
-                        {!! html_entity_decode($projects['description']) !!}
+                        @php
+                            echo html_entity_decode($projects['description']);
+                        @endphp
                         <a href="projects-and-accreditations.php" class="work__link">Read More</a>
                     </div>
                 </div>
