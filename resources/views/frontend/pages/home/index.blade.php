@@ -60,7 +60,7 @@
             <div class="anim-text__desc js-animated-text translation-block text_fotns">{{ $homeDetails->introduction }}
             </div>
             <div class="view_more_button_div">
-                <a class="view_more_button" href="about-us.php">
+                <a class="view_more_button" href="{{ route('about-us') }}">
                     VIEW MORE
                 </a>
             </div>
@@ -241,7 +241,7 @@
                                 </div>
                             </div>
                         </section>
-                        @isset($project)
+                        @if(isset($project))
                         <section class="work">
                             <div class="work__left">
                                 <div class="work__text">
@@ -253,8 +253,12 @@
                                                     class="stroke">PROJECTS</span></h2>
                                             <p class="text_fotns mb-0 pb-0">
                                                 {{ \Carbon\Carbon::parse($projects['date'])->format('M d, Y') }}</p>
-                                            <p class="text_fotns">{{ $projects['description'] }}</p>
-                                            <a href="projects-and-accreditations.php" class="work__link">Read More</a>
+                                            
+                                            @php
+                                                echo html_entity_decode($projects['description']); 
+                                            @endphp
+                                            
+                                            <a href="{{ route('projects') }}" class="work__link">Read More</a>
                                         </div>
                                     </div>
                                     @endforeach
@@ -276,11 +280,32 @@
                                 </div>
                             </div>
                         </section>
-                        @endisset
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @if(isset($project))
+    <section class="work_carousel">
+        <div class="work__text">
+            <div id="work_carousel" class="owl-carousel owl-theme">
+                @foreach($project as $index => $projects)
+                    <div class="work__info">
+                        <div class="work__left-bl">
+                            <!--<span class="work__num">{{ sprintf('%02d', $index + 1) }}</span>-->
+                            <img src="{{ asset('storage/' . $projects['image']) }}" alt="{{ $projects['title'] }}">
+                            <h2 class="title">{{ $projects['title'] }}<!-- <span class="stroke">PROJECTS</span> --></h2>
+                            <!--<p class="text_fotns mb-0 pb-0">{{ date('M.d, Y', strtotime($projects['date'])) }}</p>-->
+                            {!! html_entity_decode($projects['description']) !!}
+                            <a href="projects-and-accreditations.php" class="work__link">Read More</a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+@endif
+
 
     @endsection
