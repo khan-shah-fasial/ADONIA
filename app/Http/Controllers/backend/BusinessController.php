@@ -74,6 +74,13 @@ class BusinessController extends Controller
         $text3 = $request->text3;
         $description = $request->description;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('steps');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+        }
+
         // Storing new image
         $newImage = [];
         if($request->has('image')){
@@ -88,8 +95,24 @@ class BusinessController extends Controller
             if (isset($newImage[$key])) {
                 $Image[$key] = $newImage[$key];
             } else {
+                // $old = "old_image$key";
+                // $Image[$key] = $request->$old ?? null;
+
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
             }
         }
 

@@ -70,6 +70,13 @@ class ProjectController extends Controller
         $date = $request->date;
         $description = $request->description;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('projects');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+        }
+
         // Storing new image
         $newImage = [];
         if($request->has('image')){
@@ -84,8 +91,24 @@ class ProjectController extends Controller
             if (isset($newImage[$key])) {
                 $Image[$key] = $newImage[$key];
             } else {
+                // $old = "old_image$key";
+                // $Image[$key] = $request->$old ?? null;
+
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
             }
         }
 
@@ -136,6 +159,13 @@ class ProjectController extends Controller
 
         $title = $request->title;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('certificate');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+            $next2 = true;
+        }
 
         // Storing new image
         $newImage = [];
@@ -151,8 +181,24 @@ class ProjectController extends Controller
             if (isset($newImage[$key])) {
                 $Image[$key] = $newImage[$key];
             } else {
+                // $old = "old_image$key";
+                // $Image[$key] = $request->$old ?? null;
+
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
             }
         }
 
@@ -170,8 +216,25 @@ class ProjectController extends Controller
             if (isset($newPDF[$key])) {
                 $PDF[$key] = $newPDF[$key];
             } else {
+                // $old_pdf = "old_pdf$key";
+                // $PDF[$key] = $request->$old_pdf ?? null;
+
                 $old_pdf = "old_pdf$key";
-                $PDF[$key] = $request->$old_pdf ?? null;
+                if($request->has($old_pdf)){
+
+                    if($next2 == true){
+                        $PDF[$key] = $old_data[$key]['pdf'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $PDF[$key] = $old_data[$privous]['pdf'] ?? null;
+                    }
+                    
+                } else {
+                    $next2 = false;
+                    $privous = $key + 1;
+                    $PDF[$key] = $old_data[$privous]['pdf'] ?? null;
+                }
+
             }
         }
 

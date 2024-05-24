@@ -112,6 +112,14 @@ class AboutController extends Controller
         $title = $request->title;
         $description = $request->description;
 
+        $old_data = DB::table('pages')->where('page_name', $request->page)->value('steps');
+
+        if($old_data !== null && !empty($old_data) && count(json_decode($old_data)) != 0 ){
+            $old_data = json_decode($old_data, true);
+            $next = true;
+            $next2 = true;
+        }
+
         // Storing new image
         $newImage = [];
         if ($request->has('image')) {
@@ -127,7 +135,20 @@ class AboutController extends Controller
                 $Image[$key] = $newImage[$key];
             } else {
                 $old = "old_image$key";
-                $Image[$key] = $request->$old ?? null;
+                if($request->has($old)){
+
+                    if($next == true){
+                        $Image[$key] = $old_data[$key]['image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image[$key] = $old_data[$privous]['image'] ?? null;
+                    }
+                    
+                } else {
+                    $next = false;
+                    $privous = $key + 1;
+                    $Image[$key] = $old_data[$privous]['image'] ?? null;
+                }
             }
         }
 
@@ -145,8 +166,25 @@ class AboutController extends Controller
             if (isset($newImageMobile[$key])) {
                 $Image2[$key] = $newImageMobile[$key];
             } else {
+                // $old2 = "old_image_mobile$key";
+                // $Image2[$key] = $request->$old2 ?? null;
+
                 $old2 = "old_image_mobile$key";
-                $Image2[$key] = $request->$old2 ?? null;
+                if($request->has($old2)){
+
+                    if($next2 == true){
+                        $Image2[$key] = $old_data[$key]['mobile_image'] ?? null;
+                    } else {
+                        $privous = $key + 1;
+                        $Image2[$key] = $old_data[$privous]['mobile_image'] ?? null;
+                    }
+                    
+                } else {
+                    $next2 = false;
+                    $privous = $key + 1;
+                    $Image2[$key] = $old_data[$privous]['mobile_image'] ?? null;
+                }
+
             }
         }
 
