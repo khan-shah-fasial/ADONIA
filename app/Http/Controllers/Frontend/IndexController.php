@@ -51,7 +51,11 @@ class IndexController extends Controller
     }
 
     public function our_Business(){
-        return view('frontend.pages.ourbusiness.our-business');
+
+        $businessDetails = DB::table('pages')->where('page_name', 'business')->first();
+        $businessSteps = json_decode($businessDetails->steps, true);
+
+        return view('frontend.pages.ourbusiness.our-business', compact('businessDetails','businessSteps'));
     }
 
     public function career(){
