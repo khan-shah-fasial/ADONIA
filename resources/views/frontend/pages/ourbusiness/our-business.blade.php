@@ -14,341 +14,123 @@ footer {
 }
 </style>
 
-<section class="buisness_banner_img inner_banner_section">
+<section class="inner_banner_section" style="background-image: url('@isset($businessDetails->banners){{ asset('storage/' . $businessDetails->banners) }}@endisset')">
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">OUR BUSINESS</h1>
         </div>
     </div>
 </section>
+<a data-bs-toggle="modal" href="#modal_popup100" class="work__link">Read More</a>
 <div class="our_buisness_section pt-5 pb-5">
+@foreach ($businessSteps as $index => $steps)
+    @php
+        $isOdd = ($index + 1) % 2 != 0;
+    @endphp
+    @if ($isOdd)
     <div class="display_flex align_center section-fadeup buisness_section_container_left">
         <div class="aboutports_left buisness_section_img_left">
-            <img src="/assets/images/ports.jpg" />
+            <img src="@isset($steps['image']){{ asset('storage/' . $steps['image']) }}@endisset" />
         </div>
         <div class="aboutports_right paddright50 fadeup top40s">
-            <h3 class="buinsness_hed">1. Ports</h3>
+            @if (isset( $steps['title'] ))
+            <h3 class="buinsness_hed">{{ $index + 1 }}. {{ $steps['title'] }}</h3>
+            @endif
             <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Design Engineering</p>
+
+                @if (isset( $steps['text1'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>1</span>
+                            <p>{{ $steps['text1'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Third Party Inspections (TPI)</p>
+                @endif
+                @if (isset( $steps['text2'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>2</span>
+                            <p>{{ $steps['text2'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Marine Warranty Surveys</p>
+                @endif
+                @if (isset( $steps['text3'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>3</span>
+                            <p>{{ $steps['text3'] }}</p>
+                        </div>
                     </div>
-                </div>
+                @endif    
+
             </div>
-            <a data-bs-toggle="modal" href="#modal_popup1" class="work__link">Read More</a>
+            <a data-bs-toggle="modal" href="#modal_popup{{ $index + 1 }}" class="work__link">Read More</a>
         </div>
+        
     </div>
+    @else
     <div class="display_flex align_center section-fadeup buisness_section_container_right">
         <div class="aboutports_right paddright50 fadeup paddingleft120 top40s">
-            <h3 class="buinsness_hed">2. VESSEL OWNERS</h3>
+            @if (isset( $steps['title'] ))
+                <h3 class="buinsness_hed">{{ $index + 1 }}. {{ $steps['title'] }}</h3>
+            @endif
             <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Ship Design / Retrofitting</p>
+                @if (isset( $steps['text1'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>1</span>
+                            <p>{{ $steps['text1'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Audits & Inspections</p>
+                @endif
+                @if (isset( $steps['text2'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>2</span>
+                            <p>{{ $steps['text2'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Feasibility Studies</p>
+                @endif
+                @if (isset( $steps['text3'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>3</span>
+                            <p>{{ $steps['text3'] }}</p>
+                        </div>
                     </div>
-                </div>
+                @endif
+          
+
             </div>
-            <a data-bs-toggle="modal" href="#modal_popup2" class="work__link">Read More</a>
+            <a data-bs-toggle="modal" href="#modal_popup{{ $index + 1 }}" class="work__link">Read More</a>
         </div>
         <div class="aboutports_left buisness_section_img_right">
-            <img src="/assets/images/Vessel-Owners.jpg" />
+            <img src="@isset($steps['image']){{ asset('storage/' . $steps['image']) }}@endisset" />
         </div>
     </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_left">
-        <div class="aboutports_left buisness_section_img_left">
-            <img src="/assets/images/SHIPYARD.jpg" />
-        </div>
-        <div class="aboutports_right paddright50 fadeup top40s">
-            <h3 class="buinsness_hed">3. SHIP YARDS</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Design Engineering</p>
-                    </div>
+    @endif
+    <!-- POPUP MODAL -->
+    <div class="modal_popup1 modal fade" id="modal_popup{{ $index + 1 }}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel{{ $index + 1 }}" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel{{ $index + 1 }}">{{ $steps['title'] }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>JH 143 Audits</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Operation & Safety Audits</p>
-                    </div>
+                <div class="modal-body">
+                    {!! $steps['description'] !!}
                 </div>
             </div>
-            <a data-bs-toggle="modal" href="#modal_popup3" class="work__link">Read More</a>
         </div>
     </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_right">
-        <div class="aboutports_right paddright50 fadeup paddingleft120 top40s">
-            <h3 class="buinsness_hed">4. LOGISTICS/ HEAVY LIFT</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Port Captaincy</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Marine Warranty Surveys</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Lifting / Loading / Lashing Calculations </p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup4" class="work__link">Read More</a>
-        </div>
-        <div class="aboutports_left buisness_section_img_right">
-            <img src="/assets/images/Logistics-&-heavy-Lift.jpg" />
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_left">
-        <div class="aboutports_left  buisness_section_img_left ">
-            <img src="/assets/images/Insurance_img.jpg" />
-        </div>
-        <div class="aboutports_right paddright50 fadeup top40s">
-            <h3 class="buinsness_hed">5. INSURANCE</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Claim Assessment</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Marine Warranty Surveys</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Draft and Bunker Quantification Survey</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup5" class="work__link">Read More</a>
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_right">
-        <div class="aboutports_right fadeup paddright50 paddingleft120 top40s">
-            <h3 class="buinsness_hed">6. OIL AND GAS</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Transportation and Installation (T&I) Engineering</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Marine Warranty Surveys (MWS)</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Third Party Inspections (TPI)</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup6" class="work__link">Read More</a>
-        </div>
-        <div class="aboutports_left buisness_section_img_right">
-            <img src="/assets/images/oil-gas.jpg" />
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_left">
-        <div class="aboutports_left  buisness_section_img_left">
-            <img src="/assets/images/banks.jpg" />
-        </div>
-        <div class="aboutports_right paddright50 fadeup top40s">
-            <h3 class="buinsness_hed">7. BANKS</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Lenders Independent Engineer (LIE)</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Due Diligence</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Valuation (Vessels, Yards, Ports etc.)</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup7" class="work__link">Read More</a>
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_right">
-        <div class="aboutports_right paddright50 fadeup paddingleft120 top40s">
-            <h3 class="buinsness_hed">8. SHIP RECYCLING</h3>
-            <div class="buisness_list">
-                <div class="col-12">
-                    <div>
-                        <span>1</span>
-                        <p>Development of Inventory of Hazardous Materials (IHM)</p>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div>
-                        <span>2</span>
-                        <p>Preparation of SRFP & SRP</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup8" class="work__link">Read More</a>
-        </div>
-        <div class="aboutports_left buisness_section_img_right">
-            <img src="/assets/images/Ship-Recycling.jpg" />
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_left">
-        <div class="aboutports_left  buisness_section_img_left">
-            <img src="/assets/images/SUBSEA.jpg" />
-        </div>
-        <div class="aboutports_right paddright50 fadeup subsea">
-            <h3 class="buinsness_hed">9. SUBSEA</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Underwater for Videography, </p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Inspection and Repairs </p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup9" class="work__link">Read More</a>
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_right">
-        <div class="aboutports_right paddright50 fadeup paddingleft120 top40s">
-            <h3 class="buinsness_hed">10. SALVAGE</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Salvors</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Salvage Consultancy</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup10" class="work__link">Read More</a>
-        </div>
-        <div class="aboutports_left buisness_section_img_right">
-            <img src="/assets/images/Salvage.jpg" />
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_left">
-        <div class="aboutports_left  buisness_section_img_left">
-            <img src="/assets/images/GEOTECHNICAL-&-COASTAL-ENGINEERING.jpg" />
-        </div>
-        <div class="aboutports_right paddright50 fadeup top40s">
-            <h3 class="buinsness_hed">11. GEOTECHNICAL & COASTAL ENGINEERING</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Port Masterplan</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Dredging PMC and Monitoring</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>Traffic Study and Transaction Advisory</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup11" class="work__link">Read More</a>
-        </div>
-    </div>
-    <div class="display_flex align_center section-fadeup buisness_section_container_right">
-        <div class="aboutports_right paddright50 fadeup paddingleft120 top40s">
-            <h3 class="buinsness_hed">12. ENVIRONMENT MANAGEMENT</h3>
-            <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>Environment Impact Assessment</p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>Read More copy 16</p>
-                    </div>
-                </div>
-            </div>
-            <a data-bs-toggle="modal" href="#modal_popup12" class="work__link">Read More</a>
-        </div>
-        <div class="aboutports_left buisness_section_img_right">
-            <img src="/assets/images/environment.jpg" />
-        </div>
-    </div>
+    <!-- POPUP MODAL -->
+@endforeach
+
+
 </div>
+
 <!--POPUP MODAL 1-->
-<div class="modal_popup1 modal fade" id="modal_popup1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+<div class="modal_popup1 modal fade" id="modal_popup100" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
     tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
