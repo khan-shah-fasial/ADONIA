@@ -13,7 +13,9 @@ footer {
     background: #bdbec2 !important;
 }
 </style>
-<section class="inner_banner_section" style=" background-image:url('{{ asset('storage/' . $aboutDetails->banners) }}')">
+<section class="inner_banner_section" style=" background-image:url('
+@isset($aboutDetails->banners) {{ asset('storage/' . $aboutDetails->banners) }} @endisset
+')">
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">ABOUT US</h1>
@@ -169,13 +171,13 @@ footer {
         <div class="container expert_specialist_container">
             <div class="row expert_specialist_section">
                 @isset($teams['expert'])
-                    @foreach ($teams['expert'] as $expert)
-                    <div class="col-md-4">
-                        <div class="team_work_div">
-                            <span class="team_work_text">{{ $expert }}</span>
-                        </div>
+                @foreach ($teams['expert'] as $expert)
+                <div class="col-md-4">
+                    <div class="team_work_div">
+                        <span class="team_work_text">{{ $expert }}</span>
                     </div>
-                    @endforeach
+                </div>
+                @endforeach
                 @endisset
             </div>
 
@@ -186,13 +188,13 @@ footer {
         <div class="container designers_container">
             <div class="row designers_section">
                 @isset($teams['expert'])
-                    @foreach ($teams['designers'] as $designer)
-                    <div class="col-md-4">
-                        <div class="team_work_div">
-                            <span class="team_work_text">{{ $designer }}</span>
-                        </div>
+                @foreach ($teams['designers'] as $designer)
+                <div class="col-md-4">
+                    <div class="team_work_div">
+                        <span class="team_work_text">{{ $designer }}</span>
                     </div>
-                    @endforeach
+                </div>
+                @endforeach
                 @endisset
             </div>
         </div>
@@ -236,7 +238,7 @@ footer {
             </div>
             <div class="aboutports_right aboutports_right_text-2 paddleft50">
                 {!! $missionVision['mission'] !!}
-                
+
             </div>
         </div>
         <div class="main_about_heading padding50">
@@ -244,7 +246,8 @@ footer {
         </div>
         <div class="platform_abouts_3">
             <div class="display_flex">
-                <div class="aboutports_right aboutports_right_text-2 paddright50 paddingleft53"> {!! $ourvalues['values'] !!} </div>
+                <div class="aboutports_right aboutports_right_text-2 paddright50 paddingleft53"> {!!
+                    $ourvalues['values'] !!} </div>
                 <div class="aboutports_left aboutports_right_text-2">
                     <div class="reveal">
                         <div class="image-wrap">
@@ -258,8 +261,8 @@ footer {
             </div>
         </div>
         <div class="platform_abouts_4 paddingleft53 paddleft50">
-        {!! $ourvalues['values2'] !!}
-        
+            {!! $ourvalues['values2'] !!}
+
         </div>
     </section>
 </div>
