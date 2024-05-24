@@ -29,7 +29,11 @@ class IndexController extends Controller
 //--------------=============================== Pages ================================------------------------------
 
     public function contact_Us(){
-        return view('frontend.pages.contactus.contact-us');
+
+        $contactDetails = DB::table('pages')->where('page_name', 'contact')->first();
+        $contacts = json_decode($contactDetails->contacts, true);
+
+        return view('frontend.pages.contactus.contact-us', compact('contactDetails', 'contacts'));
     }
     public function projects() {
 
@@ -53,8 +57,8 @@ class IndexController extends Controller
     public function career(){
 
         $careerDetails = DB::table('pages')->where('page_name', 'career')->first();
-
-        return view('frontend.pages.career.careers', compact('careerDetails'));
+        $introduction = json_decode($careerDetails->introduction, true);
+        return view('frontend.pages.career.careers', compact('careerDetails','introduction'));
     }
 
     public function about_Us(){
