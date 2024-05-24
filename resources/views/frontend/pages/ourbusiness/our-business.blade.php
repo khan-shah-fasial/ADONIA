@@ -21,6 +21,7 @@ footer {
         </div>
     </div>
 </section>
+<a data-bs-toggle="modal" href="#modal_popup100" class="work__link">Read More</a>
 <div class="our_buisness_section pt-5 pb-5">
 @foreach ($businessSteps as $index => $steps)
     @php
@@ -117,7 +118,7 @@ footer {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    {{ $steps['description'] }}
+                    {!! $steps['description'] !!}
                 </div>
             </div>
         </div>
@@ -129,7 +130,7 @@ footer {
 </div>
 
 <!--POPUP MODAL 1-->
-<div class="modal_popup1 modal fade" id="modal_popup1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+<div class="modal_popup1 modal fade" id="modal_popup100" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
     tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
