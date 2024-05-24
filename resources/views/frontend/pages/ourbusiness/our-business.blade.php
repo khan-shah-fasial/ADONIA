@@ -8,10 +8,6 @@
 
 @section('page.content')
 
-@php
-var_dump($businessSteps);
-@endphp
-
 <style>
 footer {
     background: #bdbec2 !important;
@@ -36,26 +32,36 @@ footer {
             <img src="@isset($steps['image']){{ asset('storage/' . $steps['image']) }}@endisset" />
         </div>
         <div class="aboutports_right paddright50 fadeup top40s">
+            @if (isset( $steps['title'] ))
             <h3 class="buinsness_hed">{{ $index + 1 }}. {{ $steps['title'] }}</h3>
+            @endif
             <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>{{ $steps['text1'] }}</p>
+
+                @if (isset( $steps['text1'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>1</span>
+                            <p>{{ $steps['text1'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>{{ $steps['text2'] }}</p>
+                @endif
+                @if (isset( $steps['text2'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>2</span>
+                            <p>{{ $steps['text2'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>{{ $steps['text3'] }}</p>
+                @endif
+                @if (isset( $steps['text3'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>3</span>
+                            <p>{{ $steps['text3'] }}</p>
+                        </div>
                     </div>
-                </div>
+                @endif    
+
             </div>
             <a data-bs-toggle="modal" href="#modal_popup{{ $index + 1 }}" class="work__link">Read More</a>
         </div>
@@ -64,26 +70,36 @@ footer {
     @else
     <div class="display_flex align_center section-fadeup buisness_section_container_right">
         <div class="aboutports_right paddright50 fadeup paddingleft120 top40s">
-            <h3 class="buinsness_hed">{{ $index + 1 }}. {{ $steps['title'] }}</h3>
+            @if (isset( $steps['title'] ))
+                <h3 class="buinsness_hed">{{ $index + 1 }}. {{ $steps['title'] }}</h3>
+            @endif
             <div class="buisness_list">
-                <div class="col-md-5">
-                    <div>
-                        <span>1</span>
-                        <p>{{ $steps['text1'] }}</p>
+                @if (isset( $steps['text1'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>1</span>
+                            <p>{{ $steps['text1'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>2</span>
-                        <p>{{ $steps['text2'] }}</p>
+                @endif
+                @if (isset( $steps['text2'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>2</span>
+                            <p>{{ $steps['text2'] }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div>
-                        <span>3</span>
-                        <p>{{ $steps['text3'] }}</p>
+                @endif
+                @if (isset( $steps['text3'] ))
+                    <div class="col-md-5">
+                        <div>
+                            <span>3</span>
+                            <p>{{ $steps['text3'] }}</p>
+                        </div>
                     </div>
-                </div>
+                @endif
+          
+
             </div>
             <a data-bs-toggle="modal" href="#modal_popup{{ $index + 1 }}" class="work__link">Read More</a>
         </div>
@@ -111,7 +127,7 @@ footer {
 
 
 </div>
-<a data-bs-toggle="modal" href="#modal_popup1">click</a>
+
 <!--POPUP MODAL 1-->
 <div class="modal_popup1 modal fade" id="modal_popup1" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
     tabindex="-1">
