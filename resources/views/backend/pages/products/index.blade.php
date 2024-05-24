@@ -4,8 +4,8 @@
 
 @section('page.content')
 <div class="col-12">
-    <div class="card widget-inline">
-        <div class="card-body p-0">
+    <div class="widget-inline">
+        <div class="p-0">
 
             @php
                 $details = DB::table('pages')->where('page_name', 'products')->first();
@@ -310,14 +310,6 @@
                                                             </textarea>
                                                         </div>
 
-                                                        @if (!empty($row->image))
-                                                            <div class="form-group mb-3 mx-2 col-md-2">
-                                                            <div style="width: 100px;">
-                                                                @php echo html_entity_decode($row->image) @endphp
-                                                                </div> 
-                                                                <input type="hidden" name="old_image{{ $j++ }}" value="{{ $row->image }}">   
-                                                            </div>
-                                                        @endif
 
                                                         <div class="form-group mb-3 mx-2 col-md-5">
                                                             <label>Insert Title:</label>

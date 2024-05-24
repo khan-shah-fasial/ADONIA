@@ -47,7 +47,12 @@ class IndexController extends Controller
     }
     
     public function products(){
-        return view('frontend.pages.products.products');
+        $productsDetails = DB::table('pages')->where('page_name', 'products')->first();
+        $radio = json_decode($productsDetails->radio_comission, true);
+        $oilnspill = json_decode($productsDetails->oil_spill, true);
+        $aids_navigation = json_decode($productsDetails->aids_navigation, true);
+        
+        return view('frontend.pages.products.products', compact('productsDetails', 'radio', 'oilnspill', 'aids_navigation'));
     }
 
     public function our_Business(){
