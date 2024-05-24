@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" data-layout-mode="detached" data-topbar-color="dark" data-menu-color="light" data-sidenav-user="true">
-
+<style>
+    .auth-brand img {
+        width: 80%;
+    }
+</style>
 <head>
     <meta charset="utf-8" />
     <title>Login Page</title>
