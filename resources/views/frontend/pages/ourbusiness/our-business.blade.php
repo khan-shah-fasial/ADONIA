@@ -64,7 +64,8 @@ footer {
                 @endif    
 
             </div>
-            <a data-bs-toggle="modal" href="#modal_popup{{ $index + 1 }}" class="work__link">Read More</a>
+            <button class="work__link" onclick="popupOpen('#pcontent{{ $index + 1 }}')">Read More</button>
+           
         </div>
         
     </div>
@@ -102,32 +103,53 @@ footer {
           
 
             </div>
-            <a data-bs-toggle="modal" href="#modal_popup{{ $index + 1 }}" class="work__link">Read More</a>
+            <button class="work__link" onclick="popupOpen('#pcontent{{ $index + 1 }}')">Read More</button>
         </div>
         <div class="aboutports_left buisness_section_img_right">
             <img src="@isset($steps['image']){{ asset('storage/' . $steps['image']) }}@endisset" />
         </div>
     </div>
     @endif
-    <!-- POPUP MODAL -->
-    <div class="modal_popup1 modal fade" id="modal_popup{{ $index + 1 }}" aria-hidden="true" aria-labelledby="exampleModalToggleLabel{{ $index + 1 }}" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalToggleLabel{{ $index + 1 }}">{{ $steps['title'] }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {!! $steps['description'] !!}
-                </div>
-            </div>
-        </div>
+
+    <div class="d-none" id="pcontent{{ $index + 1 }}">
+        <span class="1">
+        @isset($steps['description'])
+                {!! $steps['description'] !!}
+            @endisset
+        </span>
+        <span class="2">
+        @isset($steps['title'])
+                {!! $steps['title'] !!}
+            @endisset
+        </span>     
+       
     </div>
-    <!-- POPUP MODAL -->
+    
+
+
 @endforeach
 
 
 </div>
+
+
+<script>
+    function popupOpen(data) {
+        // Extract title and description from the data parameter
+        var title = $(data).find('.2').html().trim(); // Get the title
+        var description = $(data).find('.1').html().trim(); // Get the description
+
+        console.log("Title:", title);
+        console.log("Description:", description);
+
+        // Set title and description in the modal
+        $('#popupModalourbuisnessLabel').html(title); // Set the title in the modal header
+        $('#popupModalourbuisnessBody').html(description); // Set the description in the modal body
+        
+        // Show the modal
+        $('#popupModalourbuisness').modal('show');
+    }
+</script>
 
 
 <!--POPUP MODAL 2-->
