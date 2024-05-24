@@ -53,8 +53,8 @@ class IndexController extends Controller
     public function career(){
 
         $careerDetails = DB::table('pages')->where('page_name', 'career')->first();
-
-        return view('frontend.pages.career.careers', compact('careerDetails'));
+        $introduction = json_decode($careerDetails->introduction, true);
+        return view('frontend.pages.career.careers', compact('careerDetails','introduction'));
     }
 
     public function about_Us(){
