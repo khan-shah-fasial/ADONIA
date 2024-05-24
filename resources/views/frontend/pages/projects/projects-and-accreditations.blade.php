@@ -8,8 +8,7 @@
 
 @section('page.content')
 
-<section class="inner_banner_section"
-    style=" background-image:url('{{ asset('storage/' . $projectDetails->banners) }}')">
+<section class="inner_banner_section" style="background-image: url('@isset($projectDetails->banners){{ asset('storage/' . $projectDetails->banners) }}@endisset')">
     <div class="container">
         <div class="heading_inner">
             <h1 class="heading_inner_text">PROJECTS AND ACCREDITATIONS</h1>
@@ -24,8 +23,10 @@
         <div class="row">
             @foreach ($projects as $project)
             <div class="col-md-4 completed_project_div">
-                <img class="" src="{{ asset('storage/' . $project['image']) }}" alt="{{ $project['title'] }}">
-                <p class="completed_project_label">{{ $project['title'] }}</p>
+                @if(isset($project['image']) && isset($project['title']))
+                    <img class="" src="{{ asset('storage/' . $project['image']) }}" alt="{{ $project['title'] }}">
+                    <p class="completed_project_label">{{ $project['title'] }}</p>
+                @endif
                 {{-- Uncomment this line if you want to display the date --}}
                 <!-- <p class="completed_project_date">{{ \Carbon\Carbon::parse($project['date'])->format('M d, Y') }}</p> -->
                 <!-- <p class="completed_project_content">
@@ -54,10 +55,15 @@
             @foreach ($certificates as $certificate)
             <div class="col-md-3 certificates_div">
                 <div>
-                    <a href="{{ asset('storage/' . $certificate['pdf']) }}" target="_blank">
-                        <img class="certificate_img" src="{{ asset('storage/' . $certificate['image']) }}"
-                            alt="{{ $certificate['title'] }}">
-                        <p class="certificate_name">{{ $certificate['title'] }}</p>
+                    <a href="
+                    @isset($certificate['pdf']) {{ asset('storage/' . $certificate['pdf']) }} @endisset 
+                    " target="_blank">
+                        <img class="certificate_img" src="@isset($certificate['image']) {{ asset('storage/' . $certificate['image']) }}
+                        @endisset
+                        " alt="@isset($certificate['title']) {{ $certificate['title'] }} @endisset
+                            ">
+                        <p class="certificate_name">@isset($certificate['title']) {{ $certificate['title'] }} @endisset
+                        </p>
                     </a>
                 </div>
             </div>
@@ -72,9 +78,15 @@
             @foreach ($certificates as $certificate)
             <div class="certificates_div">
                 <div>
-                    <a href="{{ asset('storage/' . $certificate['pdf']) }}" target="_blank">
-                        <img class="certificate_img" src="{{ asset('storage/' . $certificate['image']) }}" alt="{{ $certificate['title'] }}">
-                        <p class="certificate_name">{{ $certificate['title'] }}</p>
+                    <a href="
+                    @isset($certificate['pdf']) {{ asset('storage/' . $certificate['pdf']) }} @endisset 
+                    " target="_blank">
+                        <img class="certificate_img" src="@isset($certificate['image']) {{ asset('storage/' . $certificate['image']) }}
+                        @endisset
+                        " alt="@isset($certificate['title']) {{ $certificate['title'] }} @endisset
+                            ">
+                        <p class="certificate_name">@isset($certificate['title']) {{ $certificate['title'] }} @endisset
+                        </p>
                     </a>
                 </div>
             </div>
