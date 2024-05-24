@@ -32,7 +32,7 @@
              <div class="col-md-6 header_left d-flex justify-content-end">
                  <div class="header__logo">
                      <a href="{{ url('/') }}" class="logo --pc">
-                         <img decoding="async" class="style-svg" src="/assets/images/logo1.png" alt="logo">
+                         <img decoding="async" class="style-svg" src="/assets/images/Logo1.png" alt="logo">
                      </a>
                  </div>
              </div>
