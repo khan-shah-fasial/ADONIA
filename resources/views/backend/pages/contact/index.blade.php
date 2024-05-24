@@ -84,15 +84,17 @@
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Address 1<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Address 1" name="address_1"
-                                    value="{{ isset($Contacts->address_1) ? $Contacts->address_1 : '' }}" required>
+                                    <textarea class="trumbowyg form-control" name="address_1" rows="5" required>
+                                        {{ isset($Contacts->address_1) ? $Contacts->address_1 : '' }}
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group mb-3">
                                     <label>Address 2<span class="red">*</span></label>
-                                    <input type="text" class="form-control" placeholder="Insert Address 2" name="address_2"
-                                    value="{{ isset($Contacts->address_2) ? $Contacts->address_2 : '' }}" required>
+                                    <textarea class="trumbowyg form-control" name="address_2" rows="5" required>
+                                        {{ isset($Contacts->address_2) ? $Contacts->address_2 : '' }}
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-sm-6">
